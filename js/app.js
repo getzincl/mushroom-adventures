@@ -8,12 +8,23 @@ const adventures = [
     id: "gifford-2026",
     title: "Gifford Pinchot Adventure",
     date: "September 2026",
-    area: "Gifford Pinchot National Forest",
+    area: "Gifford Pinchot National Forest Northern area",
     summary: "A day in the forest looking for fall fungi and exploring new ground.",
     mushrooms: ["Chanterelle", "Lobster Mushroom"],
     emoji: "🍄",
     // PUBLIC/general map position only. Do not put exact coordinates here.
     publicMap: [46.25, -121.85]
+  },
+  {
+    id: "HighBridgeCreek-2026",
+    title: "High Bridge Creek fun",
+    date: "September 2026",
+    area: "Gifford Pinchot National Forest south of Randle",
+    summary: "A day in the forest looking for fall fungi and exploring new ground.",
+    mushrooms: ["Chanterelle", "Lobster Mushroom"],
+    emoji: "🫈",
+    // PUBLIC/general map position only. Do not put exact coordinates here.
+    publicMap: [46.449662, -121.841746]
   },
   {
     id: "elbe-2026",
@@ -45,9 +56,14 @@ const PRIVATE_PASSWORD = "change-me";
 
 const privateLocations = [
   {
-    title: "Gifford Pinchot — exact spot",
+    title: "Gifford Pinchot North — exact spot",
     details: "Example private note. Replace this with your exact trail/spot information.",
     coords: "46.00000, -121.00000"
+  },
+    {
+    title: "Gifford Pinchot South of Randle — exact spot",
+    details: "Example private note. Replace this with your exact trail/spot information.",
+    coords: "46.41221° N, 121.80566° W"
   },
   {
     title: "Elbe Hills — exact spot",
