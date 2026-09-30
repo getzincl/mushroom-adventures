@@ -1,5 +1,5 @@
 // ============================================================
-// My Mushroom Adventures
+// Getzin Family Mushroom Adventures
 // Edit the data below to add your own adventures and mushrooms.
 // ============================================================
 
