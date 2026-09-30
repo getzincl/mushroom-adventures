@@ -99,15 +99,33 @@ function escapeHtml(value) {
 }
 
 function initMap() {
-  const map = L.map("mapContainer", {scrollWheelZoom:false}).setView([46.41, -121.81], 8);
+  const map = L.map("mapContainer", {
+    scrollWheelZoom: false,
+    zoomControl: true
+  }).setView([46.41, -121.81], 8);
+
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 18,
-    attribution: '&copy; OpenStreetMap contributors'
+    attribution: "&copy; OpenStreetMap contributors"
   }).addTo(map);
 
   adventures.forEach(a => {
-    L.marker(a.publicMap).addTo(map)
-      .bindPopup(`<strong>${escapeHtml(a.title)}</strong><br>${escapeHtml(a.area)}`);
+    L.marker(a.publicMap)
+      .addTo(map)
+      .bindPopup(`
+        <strong>${escapeHtml(a.title)}</strong><br>
+        ${escapeHtml(a.area)}
+      `);
+  });
+
+  // Give Leaflet a moment to calculate the container dimensions.
+  setTimeout(() => {
+    map.invalidateSize();
+  }, 100);
+
+  // Recalculate the map if the browser window changes size.
+  window.addEventListener("resize", () => {
+    map.invalidateSize();
   });
 }
 
