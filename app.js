@@ -99,7 +99,7 @@ function escapeHtml(value) {
 }
 
 function initMap() {
-  const map = L.map("mapContainer", {scrollWheelZoom:false}).setView([46.6, -121.8], 8);
+  const map = L.map("mapContainer", {scrollWheelZoom:false}).setView([46.41, -121.81], 8);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 18,
     attribution: '&copy; OpenStreetMap contributors'
