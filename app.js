@@ -16,6 +16,17 @@ const adventures = [
     publicMap: [46.25, -121.85]
   },
   {
+    id: "HighBridgeCreek-2026",
+    title: "High Bridge Creek fun",
+    date: "September 2026",
+    area: "Gifford Pinchot National Forest south of Randle",
+    summary: "A day in the forest looking for fall fungi and exploring new ground.",
+    mushrooms: ["Chanterelle", "Lobster Mushroom"],
+    emoji: "🫈",
+    // PUBLIC/general map position only. Do not put exact coordinates here.
+    publicMap: [46.449662, -121.841746]
+  },
+  {
     id: "elbe-2026",
     title: "Elbe Hills Hunt",
     date: "September 2026",
