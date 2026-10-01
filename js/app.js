@@ -90,23 +90,40 @@ function renderAdventures(filter = "") {
     return;
   }
 
+
   grid.innerHTML = list.map(a => `
-    <article class="card">
+    <article class="card adventure-card">
+
       <div class="card-image">
         ${a.image
           ? `<img src="${escapeHtml(a.image)}" alt="${escapeHtml(a.title)}">`
           : `<span aria-hidden="true">${a.emoji}</span>`
         }
+
+        <div class="photo-date">
+          ${escapeHtml(a.date)}
+        </div>
       </div>
+
       <div class="card-body">
-        <p class="eyebrow">${escapeHtml(a.date)}</p>
+        <p class="card-location">📍 ${escapeHtml(a.area)}</p>
+
         <h3>${escapeHtml(a.title)}</h3>
-        <p><strong>${escapeHtml(a.area)}</strong></p>
-        <p>${escapeHtml(a.summary)}</p>
-        <div class="tags">${a.mushrooms.map(m => `<span class="tag">${escapeHtml(m)}</span>`).join("")}</div>
+
+        <p class="card-summary">
+          ${escapeHtml(a.summary)}
+        </p>
+
+        <div class="tags">
+          ${a.mushrooms.map(m =>
+            `<span class="tag">🍄 ${escapeHtml(m)}</span>`
+          ).join("")}
+        </div>
       </div>
+
     </article>
   `).join("");
+
 }
 
 function renderMushrooms() {
