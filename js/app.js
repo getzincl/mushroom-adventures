@@ -129,7 +129,7 @@ function initMap() {
   const map = L.map("mapContainer", {
     scrollWheelZoom: false,
     zoomControl: true
-  }).setView([46.41, -121.81], 8);
+  }).setView([47.05, -122.09], 9);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 18,
