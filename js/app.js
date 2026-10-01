@@ -46,6 +46,7 @@ const mushrooms = [
     name: "Bear's Head",
     scientific: "Hericium americanum",
     emoji: "🦁",
+    image: "images/bears-head.jpg",
     note: "A distinctive toothed fungus with cascading spines, usually found growing on hardwoods.",
     season: "Summer – Fall"
   },
@@ -53,6 +54,7 @@ const mushrooms = [
     name: "Bleeding Tooth",
     scientific: "Hydnellum peckii",
     emoji: "🩸",
+    image: "images/bleeding-tooth.jpg",
     note: "A striking tooth fungus that can produce red droplets on its pale cap when young.",
     season: "Summer – Fall"
   },
@@ -60,6 +62,7 @@ const mushrooms = [
     name: "Cauliflower Mushroom",
     scientific: "Sparassis",
     emoji: "🥦",
+    image: "images/cauliflower.jpg",
     note: "A large, highly branched fungus resembling a head of cauliflower, often found near conifers.",
     season: "Summer – Fall"
   },
@@ -67,6 +70,7 @@ const mushrooms = [
     name: "Chanterelle",
     scientific: "Cantharellus",
     emoji: "🍄",
+    image: "images/chanterelle.jpg",
     note: "A prized woodland mushroom commonly recognized by its golden color and false gills.",
     season: "Summer – Fall"
   },
@@ -81,6 +85,7 @@ const mushrooms = [
     name: "Porcini",
     scientific: "Boletus",
     emoji: "🍄",
+    image: "images/porcini.jpg",
     note: "A group of prized boletes with thick stems and a sponge-like pore surface beneath the cap.",
     season: "Summer – Fall"
   }
@@ -166,8 +171,11 @@ function renderMushrooms() {
   document.getElementById("mushroomGrid").innerHTML = mushrooms.map(m => `
     <article class="mushroom">
 
-      <div class="mushroom-icon" aria-hidden="true">
-        ${m.emoji}
+      <div class="mushroom-image">
+        ${m.image
+          ? `<img src="${escapeHtml(m.image)}" alt="${escapeHtml(m.name)}">`
+          : `<span aria-hidden="true">${m.emoji}</span>`
+        }
       </div>
 
       <div class="mushroom-info">
