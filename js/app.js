@@ -42,14 +42,50 @@ const adventures = [
 ];
 
 const mushrooms = [
-  {name:"Bear's Head", emoji:"🐻", note:"A striking white mushroom with cascading, tooth-like spines that resembles a shaggy bear's head. It is edible when young and has a mild, seafood-like flavor."},
-  {name:"Bleeding Tooth", emoji:"🦷", note:"This unusual mushroom has a white, tooth-covered cap that can ooze red droplets resembling blood. It is not considered edible because of its bitter, unpleasant taste."},
-  {name:"Cauliflower Mushroom", emoji:"💮", note:"A large, cream-colored mushroom made up of many tightly curled, ruffled branches that resemble cauliflower. It is edible and has a firm, slightly nutty texture."},
-  {name:"Chanterelle", emoji:"🌼", note:"A golden-yellow mushroom with a funnel-shaped cap and distinctive false gills running down the stem. It is highly regarded as an edible mushroom with a fruity, peppery flavor."},
-  {name:"Lobster Mushroom", emoji:"🦞", note:"A lobster mushroom is actually another mushroom that has been transformed by a parasitic fungus, giving it a bright orange-red shell-like appearance. It is edible and has a firm texture and savory, seafood-like flavor."},
-  {name:"Porcini", emoji:"🍄‍🟫", note:"A prized bolete with a thick stem, brown cap, and pores instead of gills underneath. It has a rich, nutty, earthy flavor and is popular fresh or dried."},
-  {name:"More to come", emoji:"🌿", note:"Your catalog can grow as you add adventures."}
+  {
+    name: "Bear's Head",
+    scientific: "Hericium americanum",
+    emoji: "🦁",
+    note: "A distinctive toothed fungus with cascading spines, usually found growing on hardwoods.",
+    season: "Summer – Fall"
+  },
+  {
+    name: "Bleeding Tooth",
+    scientific: "Hydnellum peckii",
+    emoji: "🩸",
+    note: "A striking tooth fungus that can produce red droplets on its pale cap when young.",
+    season: "Summer – Fall"
+  },
+  {
+    name: "Cauliflower Mushroom",
+    scientific: "Sparassis",
+    emoji: "🥦",
+    note: "A large, highly branched fungus resembling a head of cauliflower, often found near conifers.",
+    season: "Summer – Fall"
+  },
+  {
+    name: "Chanterelle",
+    scientific: "Cantharellus",
+    emoji: "🍄",
+    note: "A prized woodland mushroom commonly recognized by its golden color and false gills.",
+    season: "Summer – Fall"
+  },
+  {
+    name: "Lobster Mushroom",
+    scientific: "Hypomyces lactifluorum",
+    emoji: "🦞",
+    note: "A parasitic fungus that transforms another mushroom into a distinctive orange-red lobster-like form.",
+    season: "Summer – Fall"
+  },
+  {
+    name: "Porcini",
+    scientific: "Boletus",
+    emoji: "🍄",
+    note: "A group of prized boletes with thick stems and a sponge-like pore surface beneath the cap.",
+    season: "Summer – Fall"
+  }
 ];
+
 
 // ------------------------------------------------------------
 // Lightweight private gate
@@ -129,9 +165,28 @@ function renderAdventures(filter = "") {
 function renderMushrooms() {
   document.getElementById("mushroomGrid").innerHTML = mushrooms.map(m => `
     <article class="mushroom">
-      <div class="emoji">${m.emoji}</div>
-      <h3>${escapeHtml(m.name)}</h3>
-      <p>${escapeHtml(m.note)}</p>
+
+      <div class="mushroom-icon" aria-hidden="true">
+        ${m.emoji}
+      </div>
+
+      <div class="mushroom-info">
+        <h3>${escapeHtml(m.name)}</h3>
+
+        <p class="scientific-name">
+          ${escapeHtml(m.scientific)}
+        </p>
+
+        <p class="mushroom-note">
+          ${escapeHtml(m.note)}
+        </p>
+
+        <div class="mushroom-season">
+          <span>🍂</span>
+          ${escapeHtml(m.season)}
+        </div>
+      </div>
+
     </article>
   `).join("");
 }
