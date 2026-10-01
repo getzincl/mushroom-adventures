@@ -44,7 +44,21 @@ h2{font-size:clamp(1.8rem,4vw,2.7rem)}
 .search{width:min(350px,100%);padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:white;font:inherit}
 .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .card{background:white;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
-.card-image{height:170px;background:linear-gradient(135deg,#d8d7c0,#a7b28e);display:grid;place-items:center;font-size:5rem}
+.card-image {
+  height: 210px;
+  background: linear-gradient(135deg, #d8d7c0, #a7b28e);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  font-size: 5rem;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .card-body{padding:21px}
 .card h3{font-family:"Libre Baskerville",serif;font-size:1.22rem;margin:.15em 0 .35em}
 .card p{color:var(--muted);font-size:.9rem;margin:.3em 0}

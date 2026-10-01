@@ -12,6 +12,7 @@ const adventures = [
     summary: "A day in the forest looking for fall fungi and exploring new ground.",
     mushrooms: ["Chanterelle", "Lobster Mushroom"],
     emoji: "🍄",
+    image: "images/gifford-2026.jpg",
     // PUBLIC/general map position only. Do not put exact coordinates here.
     publicMap: [46.25, -121.85]
   },
@@ -23,6 +24,7 @@ const adventures = [
     summary: "A day in the forest looking for fall fungi and exploring new ground.",
     mushrooms: ["Chanterelle", "Lobster Mushroom"],
     emoji: "🫈",
+    image: "images/high-bridge-creek-2026.jpg",
     // PUBLIC/general map position only. Do not put exact coordinates here.
     publicMap: [46.449662, -121.841746]
   },
@@ -34,6 +36,7 @@ const adventures = [
     summary: "A short outing through mixed forest with a few promising finds.",
     mushrooms: ["Chanterelle"],
     emoji: "🌲",
+    image: "images/elbe-2026.jpg",
     publicMap: [46.76, -122.18]
   }
 ];
@@ -81,7 +84,12 @@ function renderAdventures(filter = "") {
 
   grid.innerHTML = list.map(a => `
     <article class="card">
-      <div class="card-image" aria-hidden="true">${a.emoji}</div>
+      <div class="card-image">
+        ${a.image
+          ? `<img src="${escapeHtml(a.image)}" alt="${escapeHtml(a.title)}">`
+          : `<span aria-hidden="true">${a.emoji}</span>`
+        }
+      </div>
       <div class="card-body">
         <p class="eyebrow">${escapeHtml(a.date)}</p>
         <h3>${escapeHtml(a.title)}</h3>
