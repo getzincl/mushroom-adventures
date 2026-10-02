@@ -85,7 +85,9 @@ const mushrooms = [
     name: "Chanterelle",
     scientific: "Cantharellus",
     emoji: "🍄",
-    images: ["images/chanterelle.jpg"],
+    images: ["images/chanterelle.jpg",
+              "images/chanterelle-2.jpg"
+            ],
     categories: ["Edible"],
     seasons: ["Summer", "Fall"],
     habitat: "Typically found on the forest floor in association with trees, especially conifers in the Pacific Northwest.",
@@ -283,12 +285,36 @@ function openMushroomModal(name) {
   const body = document.getElementById("mushroomModalBody");
 
   body.innerHTML = `
-    <div class="modal-mushroom-image">
-      ${mushroom.images && mushroom.images.length
-        ? `<img src="${escapeHtml(mushroom.images[0])}"
-                alt="${escapeHtml(mushroom.name)}">`
-        : `<span>${escapeHtml(mushroom.emoji)}</span>`
-      }
+    <div class="mushroom-gallery">
+
+      <div class="gallery-main">
+
+        <button
+          class="gallery-arrow gallery-prev"
+          aria-label="Previous photo">
+          ‹
+        </button>
+
+        <div id="galleryMainImage" class="modal-mushroom-image">
+          ${mushroom.images && mushroom.images.length
+            ? `<img src="${escapeHtml(mushroom.images[0])}"
+                    alt="${escapeHtml(mushroom.name)}">`
+            : `<span>${escapeHtml(mushroom.emoji)}</span>`
+          }
+        </div>
+
+        <button
+          class="gallery-arrow gallery-next"
+          aria-label="Next photo">
+          ›
+        </button>
+
+      </div>
+
+      <div id="galleryThumbnails" class="gallery-thumbnails"></div>
+
+      <div id="galleryCounter" class="gallery-counter"></div>
+
     </div>
 
     <div class="modal-mushroom-info">
@@ -355,6 +381,72 @@ function openMushroomModal(name) {
 
   modal.classList.remove("hidden");
   document.body.classList.add("modal-open");
+
+  setupMushroomGallery(mushroom);
+}
+
+function setupMushroomGallery(mushroom) {
+  const images = mushroom.images || [];
+
+  if (!images.length) return;
+
+  let currentIndex = 0;
+
+  const mainImage = document.getElementById("galleryMainImage");
+  const thumbnails = document.getElementById("galleryThumbnails");
+  const counter = document.getElementById("galleryCounter");
+
+  function showImage(index) {
+    currentIndex = (index + images.length) % images.length;
+
+    mainImage.innerHTML = `
+      <img
+        src="${escapeHtml(images[currentIndex])}"
+        alt="${escapeHtml(mushroom.name)} photograph ${currentIndex + 1}"
+      >
+    `;
+
+    counter.textContent =
+      `${currentIndex + 1} / ${images.length}`;
+
+    thumbnails.querySelectorAll(".gallery-thumbnail").forEach((thumb, i) => {
+      thumb.classList.toggle("active", i === currentIndex);
+    });
+  }
+
+  thumbnails.innerHTML = images.map((image, index) => `
+    <button
+      class="gallery-thumbnail ${index === 0 ? "active" : ""}"
+      data-index="${index}"
+      aria-label="View photo ${index + 1}">
+
+      <img
+        src="${escapeHtml(image)}"
+        alt=""
+        loading="lazy">
+
+    </button>
+  `).join("");
+
+  thumbnails.querySelectorAll(".gallery-thumbnail").forEach(thumb => {
+    thumb.addEventListener("click", () => {
+      showImage(Number(thumb.dataset.index));
+    });
+  });
+
+  document
+    .querySelector(".gallery-prev")
+    .addEventListener("click", () => {
+      showImage(currentIndex - 1);
+    });
+
+  document
+    .querySelector(".gallery-next")
+    .addEventListener("click", () => {
+      showImage(currentIndex + 1);
+    });
+
+  showImage(0);
 }
 
 function closeMushroomModal() {
