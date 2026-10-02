@@ -49,7 +49,7 @@ const mushrooms = [
     image: "images/bears-head.jpeg",
     categories: ["Tooth Fungus", "Edible"],
     note: "A distinctive toothed fungus with cascading spines, usually found growing on hardwoods.",
-    season: "Summer – Fall"
+    seasons: ["Summer", "Fall"]
   },
   {
     name: "Bleeding Tooth",
@@ -58,7 +58,7 @@ const mushrooms = [
     image: "images/bleeding-tooth.jpeg",
     categories: ["Tooth Fungus"],
     note: "A striking tooth fungus that can produce red droplets on its pale cap when young.",
-    season: "Summer – Fall"
+    seasons: ["Summer", "Fall"]
   },
   {
     name: "Cauliflower Mushroom",
@@ -67,7 +67,7 @@ const mushrooms = [
     image: "images/cauliflower.jpeg",
     categories: ["Other", "Edible"],
     note: "A large, highly branched fungus resembling a head of cauliflower, often found near conifers.",
-    season: "Summer – Fall"
+    seasons: ["Summer", "Fall"]
   },
   {
     name: "Chanterelle",
@@ -76,7 +76,7 @@ const mushrooms = [
     image: "images/chanterelle.jpeg",
     categories: ["False Gills", "Edible"],
     note: "A prized woodland mushroom commonly recognized by its golden color and false gills.",
-    season: "Summer – Fall"
+    seasons: ["Summer", "Fall"]
   },
   {
     name: "Lobster Mushroom",
@@ -85,7 +85,7 @@ const mushrooms = [
     image: "images/lobster.jpeg",
     categories: ["Other","Edible"],
     note: "A parasitic fungus that transforms another mushroom into a distinctive orange-red lobster-like form.",
-    season: "Summer – Fall"
+    seasons: ["Summer", "Fall"]
   },
   {
     name: "Porcini",
@@ -94,7 +94,7 @@ const mushrooms = [
     image: "images/porcini.jpeg",
     categories: ["Boletes", "Edible"],
     note: "A group of prized boletes with thick stems and a sponge-like pore surface beneath the cap.",
-    season: "Summer – Fall"
+    seasons: ["Summer", "Fall"]
   }
 ];
 
@@ -179,7 +179,10 @@ function renderMushrooms(filter = "All") {
 
   const list = filter === "All"
     ? mushrooms
-    : mushrooms.filter(m => m.categories.includes(filter));
+    : mushrooms.filter(m =>
+        m.categories.includes(filter) ||
+        m.seasons.includes(filter)
+      );
 
   if (!list.length) {
     grid.innerHTML = '<div class="empty">No mushrooms matched that category.</div>';
@@ -217,7 +220,7 @@ function renderMushrooms(filter = "All") {
 
         <div class="mushroom-season">
           <span>🍂</span>
-          ${escapeHtml(m.season)}
+          ${escapeHtml(m.seasons.join(" - "))}
         </div>
       </div>
 

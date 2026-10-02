@@ -274,6 +274,13 @@ h2{font-size:clamp(1.8rem,4vw,2.7rem)}
   color: white;
 }
 
+.filter-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--line);
+  margin: 0 4px;
+}
+
 .private-section{background:#25372d;color:white}
 .private-card{background:#31463a;padding:34px;border-radius:14px}
 .private-card .muted{color:#c9d2c9}
@@ -299,4 +306,10 @@ footer{background:#19271f;color:#aab5ad;padding:25px 0}
  .mushroom-grid{grid-template-columns:1fr}.stat-grid strong{font-size:1.35rem}.stat-grid span{font-size:.62rem}
  .password-row{flex-direction:column}.password-row .button{width:100%}
  .footer-inner{flex-direction:column;gap:6px}
+}
+
+@media(max-width:500px){
+  .filter-divider {
+    display: none;
+  }
 }
