@@ -469,6 +469,25 @@ footer{background:#19271f;color:#aab5ad;padding:25px 0}
 .footer-inner{display:flex;justify-content:space-between;font-size:.8rem}
 .muted{color:var(--muted)}
 .empty{padding:30px;background:white;border:1px dashed var(--line);border-radius:10px;color:var(--muted)}
+
+.field-guide-section {
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  margin-top: 22px;
+}
+
+.field-guide-section h3 {
+  font-family: "Libre Baskerville", serif;
+  font-size: 1.05rem;
+  margin: 0 0 7px;
+}
+
+.field-guide-section p {
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.65;
+}
+
 @media(max-width:800px){
  nav{display:none}.hero-inner{grid-template-columns:1fr;min-height:650px}.hero-art{height:270px}
  .card-grid{grid-template-columns:1fr}.mushroom-grid{grid-template-columns:repeat(2,1fr)}

@@ -12,7 +12,7 @@ const adventures = [
     summary: "A day in the forest looking for fall fungi and exploring new ground.",
     mushrooms: ["Chanterelle", "Lobster Mushroom", "Bear's Head"],
     emoji: "🍄",
-    image: "images/bears-head.jpeg",
+    image: "images/bears-head.jpg",
     // PUBLIC/general map position only. Do not put exact coordinates here.
     publicMap: [46.7, -121.85]
   },
@@ -24,7 +24,7 @@ const adventures = [
     summary: "A day in the forest looking for fall fungi and exploring new ground.",
     mushrooms: ["Chanterelle", "Lobster Mushroom", "Cauliflower Mushroom"],
     emoji: "🫈",
-    image: "images/cauliflower.jpeg",
+    image: "images/cauliflower-mushroom.jpg",
     // PUBLIC/general map position only. Do not put exact coordinates here.
     publicMap: [46.4, -121.9]
   },
@@ -36,7 +36,7 @@ const adventures = [
     summary: "A jaunt with the family along the Big Pond Trail.",
     mushrooms: ["Chanterelle", "Bleeding Tooth"],
     emoji: "🌲",
-    image: "images/bleeding-tooth.jpeg",
+    image: "images/bleeding-tooth.jpg",
     publicMap: [47.5, -122.7]
   }
 ];
@@ -46,55 +46,84 @@ const mushrooms = [
     name: "Bear's Head",
     scientific: "Hericium americanum",
     emoji: "🦁",
-    image: "images/bears-head.jpeg",
-    categories: ["Tooth Fungi", "Edible"],
+    image: "images/bears-head.jpg",
+    categories: ["Tooth Fungi"],
+    seasons: ["Summer", "Fall"],
+
+    habitat: "Usually found on hardwood trees, logs, or stumps in mature forest.",
+    identification: "A branching or coral-like fungus covered with long, cascading white spines.",
     note: "A distinctive toothed fungus with cascading spines, usually found growing on hardwoods.",
-    seasons: ["Summer", "Fall"]
+    observations: "Add your own observations here as you encounter this mushroom."
   },
+
   {
     name: "Bleeding Tooth",
     scientific: "Hydnellum peckii",
     emoji: "🩸",
-    image: "images/bleeding-tooth.jpeg",
+    image: "images/bleeding-tooth.jpg",
     categories: ["Tooth Fungi"],
+    seasons: ["Summer", "Fall"],
+
+    habitat: "Found on the ground in forest environments, often associated with coniferous woodland.",
+    identification: "Young specimens can have pale caps with distinctive red droplets and a toothed underside.",
     note: "A striking tooth fungus that can produce red droplets on its pale cap when young.",
-    seasons: ["Summer", "Fall"]
+    observations: "Add your own observations here as you encounter this mushroom."
   },
+
   {
     name: "Cauliflower Mushroom",
     scientific: "Sparassis",
     emoji: "🥦",
-    image: "images/cauliflower.jpeg",
-    categories: ["Other", "Edible"],
+    image: "images/cauliflower-mushroom.jpg",
+    categories: ["Other"],
+    seasons: ["Summer", "Fall"],
+
+    habitat: "Usually found near the base of conifers or growing from buried wood and roots.",
+    identification: "Large, pale, highly branched clusters with flattened, ruffled branches resembling cauliflower.",
     note: "A large, highly branched fungus resembling a head of cauliflower, often found near conifers.",
-    seasons: ["Summer", "Fall"]
+    observations: "Add your own observations here as you encounter this mushroom."
   },
+
   {
     name: "Chanterelle",
     scientific: "Cantharellus",
     emoji: "🍄",
-    image: "images/chanterelle.jpeg",
-    categories: ["False Gills", "Edible"],
+    image: "images/chanterelle.jpg",
+    categories: ["Edible"],
+    seasons: ["Summer", "Fall"],
+
+    habitat: "Typically found on the forest floor in association with trees, especially conifers in the Pacific Northwest.",
+    identification: "Often golden yellow to orange with a vase-like shape and blunt, forked false gills running down the stem.",
     note: "A prized woodland mushroom commonly recognized by its golden color and false gills.",
-    seasons: ["Summer", "Fall"]
+    observations: "Add your own observations here as you encounter this mushroom."
   },
+
   {
     name: "Lobster Mushroom",
     scientific: "Hypomyces lactifluorum",
     emoji: "🦞",
-    image: "images/lobster.jpeg",
-    categories: ["Other","Edible"],
+    image: "images/lobster-mushroom.jpg",
+    categories: ["Edible"],
+    seasons: ["Summer", "Fall"],
+
+    habitat: "Found on the forest floor where the parasitic fungus colonizes other mushrooms.",
+    identification: "The host mushroom becomes covered in a hard orange-red outer layer with a distorted lobster-like appearance.",
     note: "A parasitic fungus that transforms another mushroom into a distinctive orange-red lobster-like form.",
-    seasons: ["Summer", "Fall"]
+    observations: "Add your own observations here as you encounter this mushroom."
   },
+
   {
     name: "Porcini",
     scientific: "Boletus",
     emoji: "🍄",
-    image: "images/porcini.jpeg",
+    image: "images/porcini.jpg",
     categories: ["Boletes", "Edible"],
+    seasons: ["Summer", "Fall"],
+
+    habitat: "Found on the ground in forest environments, often associated with conifer and mixed forests.",
+    identification: "Typically has a thick stem, rounded cap, and pores rather than gills underneath the cap.",
     note: "A group of prized boletes with thick stems and a sponge-like pore surface beneath the cap.",
-    seasons: ["Summer", "Fall"]
+    observations: "Add your own observations here as you encounter this mushroom."
   }
 ];
 
@@ -301,16 +330,29 @@ function openMushroomModal(name) {
 
         <div>
           <strong>Habitat</strong>
-          <span>🌲 Woodland / forest</span>
+          <span>🌲 ${escapeHtml(mushroom.habitat)}</span>
         </div>
 
+      </div>
+
+      <div class="field-guide-section">
+        <h3>Identification</h3>
+        <p>
+          ${escapeHtml(mushroom.identification)}
+        </p>
+      </div>
+
+      <div class="field-guide-section">
+        <h3>Field notes</h3>
+        <p>
+          ${escapeHtml(mushroom.note)}
+        </p>
       </div>
 
       <div class="personal-observation">
         <strong>My observations</strong>
         <p>
-          Personal notes about this mushroom will go here as you add
-          more details to your field journal.
+          ${escapeHtml(mushroom.observations)}
         </p>
       </div>
 
