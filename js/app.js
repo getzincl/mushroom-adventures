@@ -201,7 +201,7 @@ function renderMushrooms(categoryFilter = "All", seasonFilter = null) {
   }
 
   grid.innerHTML = list.map(m => `
-    <article class="mushroom">
+    <article class="mushroom mushroom-card-clickable" data-mushroom="${escapeHtml(m.name)}">
 
       <div class="mushroom-image">
         ${m.image
@@ -242,7 +242,91 @@ function renderMushrooms(categoryFilter = "All", seasonFilter = null) {
     </article>
   `).join("");
 
+  grid.querySelectorAll(".mushroom-card-clickable").forEach(card => {
+    card.addEventListener("click", () => {
+      openMushroomModal(card.dataset.mushroom);
+    });
+  });
+
   updateMushroomCount(list.length);
+}
+
+function openMushroomModal(name) {
+  const mushroom = mushrooms.find(m => m.name === name);
+
+  if (!mushroom) return;
+
+  const modal = document.getElementById("mushroomModal");
+  const body = document.getElementById("mushroomModalBody");
+
+  body.innerHTML = `
+    <div class="modal-mushroom-image">
+      ${mushroom.image
+        ? `<img src="${escapeHtml(mushroom.image)}"
+                alt="${escapeHtml(mushroom.name)}">`
+        : `<span>${escapeHtml(mushroom.emoji)}</span>`
+      }
+    </div>
+
+    <div class="modal-mushroom-info">
+
+      <p class="eyebrow">FIELD GUIDE ENTRY</p>
+
+      <h2 id="modalMushroomName">
+        ${escapeHtml(mushroom.name)}
+      </h2>
+
+      <p class="scientific-name">
+        ${escapeHtml(mushroom.scientific)}
+      </p>
+
+      <div class="mushroom-tags">
+        ${mushroom.categories.map(category =>
+          `<span class="mushroom-tag">
+            ${escapeHtml(category)}
+          </span>`
+        ).join("")}
+      </div>
+
+      <p class="modal-description">
+        ${escapeHtml(mushroom.note)}
+      </p>
+
+      <div class="modal-details">
+
+        <div>
+          <strong>Season</strong>
+          <span>🍂 ${escapeHtml(mushroom.seasons.join(" – "))}</span>
+        </div>
+
+        <div>
+          <strong>Habitat</strong>
+          <span>🌲 Woodland / forest</span>
+        </div>
+
+      </div>
+
+      <div class="personal-observation">
+        <strong>My observations</strong>
+        <p>
+          Personal notes about this mushroom will go here as you add
+          more details to your field journal.
+        </p>
+      </div>
+
+    </div>
+  `;
+
+  modal.classList.remove("hidden");
+  document.body.classList.add("modal-open");
+}
+
+function closeMushroomModal() {
+  document
+    .getElementById("mushroomModal")
+    .classList.add("hidden");
+
+  document.body.classList.remove("modal-open");
 }
 
 function updateMushroomCount(count) {
@@ -339,6 +423,20 @@ document.addEventListener("DOMContentLoaded", () => {
   renderMushrooms();
   initMap();
   setupPrivateGate();
+
+  document
+    .getElementById("closeMushroomModal")
+    .addEventListener("click", closeMushroomModal);
+
+  document
+    .querySelector(".mushroom-modal-backdrop")
+    .addEventListener("click", closeMushroomModal);
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      closeMushroomModal();
+    }
+  });
 
   document.getElementById("adventureCount").textContent = adventures.length;
   document.getElementById("mushroomCount").textContent =

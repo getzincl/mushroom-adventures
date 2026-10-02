@@ -245,6 +245,153 @@ h2{font-size:clamp(1.8rem,4vw,2.7rem)}
   font-weight: 600;
 }
 
+.mushroom-card-clickable {
+  cursor: pointer;
+}
+
+.mushroom-card-clickable:hover {
+  border-color: var(--moss);
+}
+
+.mushroom-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 25px;
+}
+
+.mushroom-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 30, 24, .72);
+  backdrop-filter: blur(5px);
+}
+
+.mushroom-modal-content {
+  position: relative;
+  z-index: 1;
+  width: min(850px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--paper);
+  border-radius: 16px;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, .3);
+  padding: 30px;
+}
+
+.mushroom-modal-close {
+  position: absolute;
+  right: 18px;
+  top: 15px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .9);
+  color: var(--ink);
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.mushroom-modal-close:hover {
+  background: #e6e1d6;
+}
+
+.modal-mushroom-image {
+  height: 360px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #d8d7c0, #a7b28e);
+  display: grid;
+  place-items: center;
+  margin-bottom: 25px;
+}
+
+.modal-mushroom-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-mushroom-image span {
+  font-size: 8rem;
+}
+
+.modal-mushroom-info h2 {
+  margin-bottom: 4px;
+}
+
+.modal-description {
+  color: var(--muted);
+  max-width: 700px;
+}
+
+.modal-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.modal-details div {
+  padding: 16px;
+  background: #edf0e7;
+  border-radius: 9px;
+}
+
+.modal-details strong,
+.modal-details span {
+  display: block;
+}
+
+.modal-details strong {
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--moss);
+  margin-bottom: 4px;
+}
+
+.personal-observation {
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+
+.personal-observation strong {
+  font-family: "Libre Baskerville", serif;
+}
+
+.personal-observation p {
+  color: var(--muted);
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+@media(max-width:600px) {
+  .mushroom-modal {
+    padding: 12px;
+  }
+
+  .mushroom-modal-content {
+    padding: 20px;
+    max-height: 94vh;
+  }
+
+  .modal-mushroom-image {
+    height: 250px;
+  }
+
+  .modal-details {
+    grid-template-columns: 1fr;
+  }
+}
+
 .mushroom-filters {
   display: flex;
   flex-wrap: wrap;
