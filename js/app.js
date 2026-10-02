@@ -46,10 +46,9 @@ const mushrooms = [
     name: "Bear's Head",
     scientific: "Hericium americanum",
     emoji: "🦁",
-    image: "images/bears-head.jpg",
+    images: ["images/bears-head.jpg"],
     categories: ["Tooth Fungi"],
     seasons: ["Summer", "Fall"],
-
     habitat: "Usually found on hardwood trees, logs, or stumps in mature forest.",
     identification: "A branching or coral-like fungus covered with long, cascading white spines.",
     note: "A distinctive toothed fungus with cascading spines, usually found growing on hardwoods.",
@@ -60,10 +59,9 @@ const mushrooms = [
     name: "Bleeding Tooth",
     scientific: "Hydnellum peckii",
     emoji: "🩸",
-    image: "images/bleeding-tooth.jpg",
+    images: ["images/bleeding-tooth.jpg"],
     categories: ["Tooth Fungi"],
     seasons: ["Summer", "Fall"],
-
     habitat: "Found on the ground in forest environments, often associated with coniferous woodland.",
     identification: "Young specimens can have pale caps with distinctive red droplets and a toothed underside.",
     note: "A striking tooth fungus that can produce red droplets on its pale cap when young.",
@@ -74,10 +72,9 @@ const mushrooms = [
     name: "Cauliflower Mushroom",
     scientific: "Sparassis",
     emoji: "🥦",
-    image: "images/cauliflower-mushroom.jpg",
+    images: ["images/cauliflower-mushroom.jpg"],
     categories: ["Other"],
     seasons: ["Summer", "Fall"],
-
     habitat: "Usually found near the base of conifers or growing from buried wood and roots.",
     identification: "Large, pale, highly branched clusters with flattened, ruffled branches resembling cauliflower.",
     note: "A large, highly branched fungus resembling a head of cauliflower, often found near conifers.",
@@ -88,10 +85,9 @@ const mushrooms = [
     name: "Chanterelle",
     scientific: "Cantharellus",
     emoji: "🍄",
-    image: "images/chanterelle.jpg",
+    images: ["images/chanterelle.jpg"],
     categories: ["Edible"],
     seasons: ["Summer", "Fall"],
-
     habitat: "Typically found on the forest floor in association with trees, especially conifers in the Pacific Northwest.",
     identification: "Often golden yellow to orange with a vase-like shape and blunt, forked false gills running down the stem.",
     note: "A prized woodland mushroom commonly recognized by its golden color and false gills.",
@@ -102,10 +98,9 @@ const mushrooms = [
     name: "Lobster Mushroom",
     scientific: "Hypomyces lactifluorum",
     emoji: "🦞",
-    image: "images/lobster-mushroom.jpg",
+    images: ["images/lobster-mushroom.jpg"],
     categories: ["Edible"],
     seasons: ["Summer", "Fall"],
-
     habitat: "Found on the forest floor where the parasitic fungus colonizes other mushrooms.",
     identification: "The host mushroom becomes covered in a hard orange-red outer layer with a distorted lobster-like appearance.",
     note: "A parasitic fungus that transforms another mushroom into a distinctive orange-red lobster-like form.",
@@ -116,10 +111,9 @@ const mushrooms = [
     name: "Porcini",
     scientific: "Boletus",
     emoji: "🍄",
-    image: "images/porcini.jpg",
+    images: ["images/porcini.jpg"],
     categories: ["Boletes", "Edible"],
     seasons: ["Summer", "Fall"],
-
     habitat: "Found on the ground in forest environments, often associated with conifer and mixed forests.",
     identification: "Typically has a thick stem, rounded cap, and pores rather than gills underneath the cap.",
     note: "A group of prized boletes with thick stems and a sponge-like pore surface beneath the cap.",
@@ -233,8 +227,8 @@ function renderMushrooms(categoryFilter = "All", seasonFilter = null) {
     <article class="mushroom mushroom-card-clickable" data-mushroom="${escapeHtml(m.name)}">
 
       <div class="mushroom-image">
-        ${m.image
-          ? `<img src="${escapeHtml(m.image)}"
+        ${m.images && m.images.length
+          ? `<img src="${escapeHtml(m.images[0])}"
                   alt="${escapeHtml(m.name)}"
                   loading="lazy">`
           : `<span aria-hidden="true">${escapeHtml(m.emoji)}</span>`
@@ -290,8 +284,8 @@ function openMushroomModal(name) {
 
   body.innerHTML = `
     <div class="modal-mushroom-image">
-      ${mushroom.image
-        ? `<img src="${escapeHtml(mushroom.image)}"
+      ${mushroom.images && mushroom.images.length
+        ? `<img src="${escapeHtml(mushroom.images[0])}"
                 alt="${escapeHtml(mushroom.name)}">`
         : `<span>${escapeHtml(mushroom.emoji)}</span>`
       }
