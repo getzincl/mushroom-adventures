@@ -47,7 +47,7 @@ const mushrooms = [
     scientific: "Hericium americanum",
     emoji: "🦁",
     image: "images/bears-head.jpeg",
-    categories: ["Tooth Fungus", "Edible"],
+    categories: ["Tooth Fungi", "Edible"],
     note: "A distinctive toothed fungus with cascading spines, usually found growing on hardwoods.",
     seasons: ["Summer", "Fall"]
   },
@@ -56,7 +56,7 @@ const mushrooms = [
     scientific: "Hydnellum peckii",
     emoji: "🩸",
     image: "images/bleeding-tooth.jpeg",
-    categories: ["Tooth Fungus"],
+    categories: ["Tooth Fungi"],
     note: "A striking tooth fungus that can produce red droplets on its pale cap when young.",
     seasons: ["Summer", "Fall"]
   },
@@ -389,5 +389,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   });
-  
+
 });
