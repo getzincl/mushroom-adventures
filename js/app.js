@@ -46,7 +46,7 @@ const mushrooms = [
     name: "Bear's Head",
     scientific: "Hericium americanum",
     emoji: "🦁",
-    image: "images/bears-head.jpg",
+    image: "images/bears-head.jpeg",
     note: "A distinctive toothed fungus with cascading spines, usually found growing on hardwoods.",
     season: "Summer – Fall"
   },
@@ -54,7 +54,7 @@ const mushrooms = [
     name: "Bleeding Tooth",
     scientific: "Hydnellum peckii",
     emoji: "🩸",
-    image: "images/bleeding-tooth.jpg",
+    image: "images/bleeding-tooth.jpeg",
     note: "A striking tooth fungus that can produce red droplets on its pale cap when young.",
     season: "Summer – Fall"
   },
@@ -62,7 +62,7 @@ const mushrooms = [
     name: "Cauliflower Mushroom",
     scientific: "Sparassis",
     emoji: "🥦",
-    image: "images/cauliflower.jpg",
+    image: "images/cauliflower.jpeg",
     note: "A large, highly branched fungus resembling a head of cauliflower, often found near conifers.",
     season: "Summer – Fall"
   },
@@ -78,6 +78,7 @@ const mushrooms = [
     name: "Lobster Mushroom",
     scientific: "Hypomyces lactifluorum",
     emoji: "🦞",
+    image: "images/lobster.jpeg",
     note: "A parasitic fungus that transforms another mushroom into a distinctive orange-red lobster-like form.",
     season: "Summer – Fall"
   },
