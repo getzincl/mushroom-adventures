@@ -174,7 +174,9 @@ function renderAdventures(filter = "") {
 
 
   grid.innerHTML = list.map(a => `
-    <article class="card adventure-card">
+    <article
+      class="card adventure-card adventure-card-clickable"
+      data-adventure="${escapeHtml(a.id)}">
 
       <div class="card-image">
         ${a.image
@@ -206,6 +208,106 @@ function renderAdventures(filter = "") {
     </article>
   `).join("");
 
+  grid.querySelectorAll(".adventure-card-clickable").forEach(card => {
+    card.addEventListener("click", () => {
+      openAdventureModal(card.dataset.adventure);
+    });
+  });
+}
+
+function openAdventureModal(id) {
+  const adventure = adventures.find(a => a.id === id);
+
+  if (!adventure) return;
+
+  const modal = document.getElementById("adventureModal");
+  const body = document.getElementById("adventureModalBody");
+
+  body.innerHTML = `
+    <p class="eyebrow">FAMILY FIELD JOURNAL</p>
+
+    <h2 id="adventureModalTitle">
+      ${escapeHtml(adventure.title)}
+    </h2>
+
+    <p class="adventure-modal-location">
+      📍 ${escapeHtml(adventure.area)}
+    </p>
+
+    <div class="adventure-modal-image">
+      ${adventure.image
+        ? `<img
+            src="${escapeHtml(adventure.image)}"
+            alt="${escapeHtml(adventure.title)}">`
+        : `<span aria-hidden="true">${escapeHtml(adventure.emoji)}</span>`
+      }
+    </div>
+
+    <div class="adventure-modal-details">
+
+      <div class="adventure-detail">
+        <span class="adventure-detail-icon">📅</span>
+        <div>
+          <strong>Date</strong>
+          <span>${escapeHtml(adventure.date)}</span>
+        </div>
+      </div>
+
+      <div class="adventure-detail">
+        <span class="adventure-detail-icon">🌧️</span>
+        <div>
+          <strong>Weather</strong>
+          <span>${escapeHtml(adventure.weather || "Not recorded")}</span>
+        </div>
+      </div>
+
+      <div class="adventure-detail">
+        <span class="adventure-detail-icon">👨‍👩‍👧‍👦</span>
+        <div>
+          <strong>Found by</strong>
+          <span>${escapeHtml(adventure.foundBy || "Not recorded")}</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="adventure-journal-section">
+      <p class="eyebrow">THE DAY</p>
+
+      <h3>Our Adventure</h3>
+
+      <p>
+        ${escapeHtml(adventure.notes || adventure.summary)}
+      </p>
+    </div>
+
+    <div class="adventure-journal-section">
+
+      <p class="eyebrow">MUSHROOMS FOUND</p>
+
+      <h3>What We Found</h3>
+
+      <div class="adventure-mushrooms">
+        ${adventure.mushrooms.map(mushroom => `
+          <span class="adventure-mushroom-tag">
+            🍄 ${escapeHtml(mushroom)}
+          </span>
+        `).join("")}
+      </div>
+
+    </div>
+  `;
+
+  modal.classList.remove("hidden");
+  document.body.classList.add("modal-open");
+}
+
+function closeAdventureModal() {
+  document
+    .getElementById("adventureModal")
+    .classList.add("hidden");
+
+  document.body.classList.remove("modal-open");
 }
 
 function renderMushrooms(categoryFilter = "All", seasonFilter = null) {
@@ -569,9 +671,18 @@ document.addEventListener("DOMContentLoaded", () => {
     .querySelector(".mushroom-modal-backdrop")
     .addEventListener("click", closeMushroomModal);
 
+  document
+    .getElementById("closeAdventureModal")
+    .addEventListener("click", closeAdventureModal);
+
+  document
+    .querySelector(".adventure-modal-backdrop")
+    .addEventListener("click", closeAdventureModal);
+
   document.addEventListener("keydown", event => {
     if (event.key === "Escape") {
       closeMushroomModal();
+      closeAdventureModal();
     }
   });
 
