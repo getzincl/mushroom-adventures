@@ -174,14 +174,27 @@ function renderAdventures(filter = "") {
 
 }
 
-function renderMushrooms() {
-  document.getElementById("mushroomGrid").innerHTML = mushrooms.map(m => `
+function renderMushrooms(filter = "All") {
+  const grid = document.getElementById("mushroomGrid");
+
+  const list = filter === "All"
+    ? mushrooms
+    : mushrooms.filter(m => m.category === filter);
+
+  if (!list.length) {
+    grid.innerHTML = '<div class="empty">No mushrooms matched that category.</div>';
+    return;
+  }
+
+  grid.innerHTML = list.map(m => `
     <article class="mushroom">
 
       <div class="mushroom-image">
         ${m.image
-          ? `<img src="${escapeHtml(m.image)}" alt="${escapeHtml(m.name)}">`
-          : `<span aria-hidden="true">${m.emoji}</span>`
+          ? `<img src="${escapeHtml(m.image)}"
+                  alt="${escapeHtml(m.name)}"
+                  loading="lazy">`
+          : `<span aria-hidden="true">${escapeHtml(m.emoji)}</span>`
         }
       </div>
 
@@ -295,5 +308,19 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("adventureCount").textContent = adventures.length;
   document.getElementById("mushroomCount").textContent =
     new Set(adventures.flatMap(a => a.mushrooms)).size;
-  document.getElementById("search").addEventListener("input", e => renderAdventures(e.target.value));
+  document.getElementById("search").addEventListener("input", e => renderAdventures(e.target.value)
+  );
+
+  document.querySelectorAll(".filter-button").forEach(button => {
+    button.addEventListener("click", () => {
+
+      document.querySelectorAll(".filter-button").forEach(btn => {
+        btn.classList.remove("active");
+      });
+
+      button.classList.add("active");
+
+      renderMushrooms(button.dataset.filter);
+    });
+  });
 });

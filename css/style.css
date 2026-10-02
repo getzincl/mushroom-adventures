@@ -229,6 +229,35 @@ h2{font-size:clamp(1.8rem,4vw,2.7rem)}
   font-weight: 600;
 }
 
+.mushroom-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 25px 0 28px;
+}
+
+.filter-button {
+  border: 1px solid var(--line);
+  background: white;
+  color: var(--muted);
+  padding: 8px 15px;
+  border-radius: 99px;
+  font: 600 .78rem "DM Sans";
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.filter-button:hover {
+  border-color: var(--forest);
+  color: var(--forest);
+}
+
+.filter-button.active {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: white;
+}
+
 .private-section{background:#25372d;color:white}
 .private-card{background:#31463a;padding:34px;border-radius:14px}
 .private-card .muted{color:#c9d2c9}
