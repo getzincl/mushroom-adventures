@@ -47,6 +47,7 @@ const mushrooms = [
     scientific: "Hericium americanum",
     emoji: "🦁",
     image: "images/bears-head.jpeg",
+    category: "Tooth Fungus",
     note: "A distinctive toothed fungus with cascading spines, usually found growing on hardwoods.",
     season: "Summer – Fall"
   },
@@ -55,6 +56,7 @@ const mushrooms = [
     scientific: "Hydnellum peckii",
     emoji: "🩸",
     image: "images/bleeding-tooth.jpeg",
+    category: "Tooth Fungus",
     note: "A striking tooth fungus that can produce red droplets on its pale cap when young.",
     season: "Summer – Fall"
   },
@@ -63,6 +65,7 @@ const mushrooms = [
     scientific: "Sparassis",
     emoji: "🥦",
     image: "images/cauliflower.jpeg",
+    category: "Other",
     note: "A large, highly branched fungus resembling a head of cauliflower, often found near conifers.",
     season: "Summer – Fall"
   },
@@ -71,6 +74,7 @@ const mushrooms = [
     scientific: "Cantharellus",
     emoji: "🍄",
     image: "images/chanterelle.jpeg",
+    category: "Edible",
     note: "A prized woodland mushroom commonly recognized by its golden color and false gills.",
     season: "Summer – Fall"
   },
@@ -79,6 +83,7 @@ const mushrooms = [
     scientific: "Hypomyces lactifluorum",
     emoji: "🦞",
     image: "images/lobster.jpeg",
+    category: "Edible",
     note: "A parasitic fungus that transforms another mushroom into a distinctive orange-red lobster-like form.",
     season: "Summer – Fall"
   },
@@ -87,6 +92,7 @@ const mushrooms = [
     scientific: "Boletus",
     emoji: "🍄",
     image: "images/porcini.jpeg",
+    category: "Boletes",
     note: "A group of prized boletes with thick stems and a sponge-like pore surface beneath the cap.",
     season: "Summer – Fall"
   }
