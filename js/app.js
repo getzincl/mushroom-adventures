@@ -174,18 +174,29 @@ function renderAdventures(filter = "") {
 
 }
 
-function renderMushrooms(filter = "All") {
+function renderMushrooms(categoryFilter = "All", seasonFilter = null) {
   const grid = document.getElementById("mushroomGrid");
 
-  const list = filter === "All"
-    ? mushrooms
-    : mushrooms.filter(m =>
-        m.categories.includes(filter) ||
-        m.seasons.includes(filter)
-      );
+  let list = mushrooms;
+
+  // Filter by category
+  if (categoryFilter !== "All") {
+    list = list.filter(m =>
+      m.categories.includes(categoryFilter)
+    );
+  }
+
+  // Filter by season
+  if (seasonFilter) {
+    list = list.filter(m =>
+      m.seasons.includes(seasonFilter)
+    );
+  }
 
   if (!list.length) {
-    grid.innerHTML = '<div class="empty">No mushrooms matched that category.</div>';
+    grid.innerHTML =
+      '<div class="empty">No mushrooms matched those filters.</div>';
+    updateMushroomCount(0);
     return;
   }
 
@@ -202,6 +213,7 @@ function renderMushrooms(filter = "All") {
       </div>
 
       <div class="mushroom-info">
+
         <h3>${escapeHtml(m.name)}</h3>
 
         <p class="scientific-name">
@@ -210,7 +222,9 @@ function renderMushrooms(filter = "All") {
 
         <div class="mushroom-tags">
           ${m.categories.map(category =>
-            `<span class="mushroom-tag">${escapeHtml(category)}</span>`
+            `<span class="mushroom-tag">
+              ${escapeHtml(category)}
+            </span>`
           ).join("")}
         </div>
 
@@ -220,12 +234,24 @@ function renderMushrooms(filter = "All") {
 
         <div class="mushroom-season">
           <span>🍂</span>
-          ${escapeHtml(m.seasons.join(" - "))}
+          ${escapeHtml(m.seasons.join(" – "))}
         </div>
+
       </div>
 
     </article>
   `).join("");
+
+  updateMushroomCount(list.length);
+}
+
+function updateMushroomCount(count) {
+  const countElement = document.getElementById("mushroomFilterCount");
+
+  if (countElement) {
+    countElement.textContent =
+      `${count} mushroom${count === 1 ? "" : "s"}`;
+  }
 }
 
 function escapeHtml(value) {
@@ -320,16 +346,48 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("search").addEventListener("input", e => renderAdventures(e.target.value)
   );
 
+  let selectedCategory = "All";
+  let selectedSeason = null;
+
   document.querySelectorAll(".filter-button").forEach(button => {
+
     button.addEventListener("click", () => {
 
-      document.querySelectorAll(".filter-button").forEach(btn => {
-        btn.classList.remove("active");
-      });
+      const type = button.dataset.filterType;
+      const value = button.dataset.filter;
 
-      button.classList.add("active");
+      if (type === "category") {
 
-      renderMushrooms(button.dataset.filter);
+        selectedCategory = value;
+
+        document
+          .querySelectorAll('[data-filter-type="category"]')
+          .forEach(btn => btn.classList.remove("active"));
+
+        button.classList.add("active");
+
+      }
+
+      if (type === "season") {
+
+        if (selectedSeason === value) {
+          selectedSeason = null;
+          button.classList.remove("active");
+        } else {
+          selectedSeason = value;
+
+          document
+            .querySelectorAll('[data-filter-type="season"]')
+            .forEach(btn => btn.classList.remove("active"));
+
+          button.classList.add("active");
+        }
+
+      }
+
+      renderMushrooms(selectedCategory, selectedSeason);
     });
+
   });
+  
 });

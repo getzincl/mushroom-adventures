@@ -76,22 +76,50 @@
     <h2>Mushroom catalog</h2>
 
   <div id="mushroomFilters" class="mushroom-filters">
-    <button class="filter-button active" data-filter="All">All</button>
 
-    <span class="filter-divider"></span>
+    <div class="filter-group">
+      <span class="filter-label">Type</span>
 
-    <button class="filter-button" data-filter="Edible">Edible</button>
-    <button class="filter-button" data-filter="Tooth Fungi">Tooth Fungi</button>
-    <button class="filter-button" data-filter="Boletes">Boletes</button>
-    <button class="filter-button" data-filter="Other">Other</button>
+      <button class="filter-button active" data-filter-type="category" data-filter="All">
+        All
+      </button>
 
-    <span class="filter-divider"></span>
+      <button class="filter-button" data-filter-type="category" data-filter="Edible">
+        Edible
+      </button>
 
-    <button class="filter-button" data-filter="Summer">Summer</button>
-    <button class="filter-button" data-filter="Fall">Fall</button>
+      <button class="filter-button" data-filter-type="category" data-filter="Tooth Fungi">
+        Tooth Fungi
+      </button>
+
+      <button class="filter-button" data-filter-type="category" data-filter="Boletes">
+        Boletes
+      </button>
+
+      <button class="filter-button" data-filter-type="category" data-filter="Other">
+        Other
+      </button>
+    </div>
+
+    <div class="filter-group">
+      <span class="filter-label">Season</span>
+
+      <button class="filter-button" data-filter-type="season" data-filter="Summer">
+        Summer
+      </button>
+
+      <button class="filter-button" data-filter-type="season" data-filter="Fall">
+        Fall
+      </button>
+    </div>
+
   </div>
 
-    <div id="mushroomGrid" class="mushroom-grid"></div>
+  <p id="mushroomFilterCount" class="filter-count">
+    6 mushrooms
+  </p>
+
+  <div id="mushroomGrid" class="mushroom-grid"></div>
   </div>
 </section>
 

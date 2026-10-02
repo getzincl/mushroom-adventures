@@ -281,6 +281,32 @@ h2{font-size:clamp(1.8rem,4vw,2.7rem)}
   margin: 0 4px;
 }
 
+.filter-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-group + .filter-group {
+  margin-top: 12px;
+}
+
+.filter-label {
+  font-size: .72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  margin-right: 4px;
+}
+
+.filter-count {
+  color: var(--muted);
+  font-size: .8rem;
+  margin: 0 0 22px;
+}
+
 .private-section{background:#25372d;color:white}
 .private-card{background:#31463a;padding:34px;border-radius:14px}
 .private-card .muted{color:#c9d2c9}
