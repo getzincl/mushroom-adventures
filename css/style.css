@@ -229,6 +229,22 @@ h2{font-size:clamp(1.8rem,4vw,2.7rem)}
   font-weight: 600;
 }
 
+.mushroom-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0 11px;
+}
+
+.mushroom-tag {
+  padding: 4px 8px;
+  border-radius: 99px;
+  background: #edf0e7;
+  color: var(--forest);
+  font-size: .68rem;
+  font-weight: 600;
+}
+
 .mushroom-filters {
   display: flex;
   flex-wrap: wrap;
