@@ -70,7 +70,7 @@ const mushrooms = [
     name: "Chanterelle",
     scientific: "Cantharellus",
     emoji: "🍄",
-    image: "images/chanterelle.jpg",
+    image: "images/chanterelle.jpeg",
     note: "A prized woodland mushroom commonly recognized by its golden color and false gills.",
     season: "Summer – Fall"
   },
@@ -86,7 +86,7 @@ const mushrooms = [
     name: "Porcini",
     scientific: "Boletus",
     emoji: "🍄",
-    image: "images/porcini.jpg",
+    image: "images/porcini.jpeg",
     note: "A group of prized boletes with thick stems and a sponge-like pore surface beneath the cap.",
     season: "Summer – Fall"
   }
