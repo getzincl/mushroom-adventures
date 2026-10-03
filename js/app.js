@@ -32,6 +32,13 @@ const adventures = [
         notes: "We were specifically hoping to find chanterelles and ended up finding several promising specimens while exploring the forest floor."
       },
       {
+        mushroomId: "bears-head",
+        images: [
+          "images/bears-head.jpg"
+        ],
+        notes: "Very Beautiful bears head growing on the side of a downed log."
+      },
+      {
         mushroomId: "lobster-mushroom",
         images: [
           "images/lobster-mushroom.jpg"
