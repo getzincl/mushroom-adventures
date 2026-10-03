@@ -288,10 +288,12 @@ function openAdventureModal(id) {
       <h3>What We Found</h3>
 
       <div class="adventure-mushrooms">
-        ${adventure.mushrooms.map(mushroom => `
-          <span class="adventure-mushroom-tag">
-            🍄 ${escapeHtml(mushroom)}
-          </span>
+        ${adventure.mushrooms.map(mushroomName => `
+          <button
+            class="adventure-mushroom-tag"
+            data-mushroom="${escapeHtml(mushroomName)}">
+            🍄 ${escapeHtml(mushroomName)}
+          </button>
         `).join("")}
       </div>
 
@@ -489,6 +491,13 @@ function openMushroomModal(name) {
 
     </div>
   `;
+
+  body.querySelectorAll(".adventure-mushroom-tag").forEach(button => {
+  button.addEventListener("click", () => {
+    closeAdventureModal();
+    openMushroomModal(button.dataset.mushroom);
+  });
+});
 
   modal.classList.remove("hidden");
   document.body.classList.add("modal-open");

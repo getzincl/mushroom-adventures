@@ -725,11 +725,20 @@ footer{background:#19271f;color:#aab5ad;padding:25px 0}
 
 .adventure-mushroom-tag {
   padding: 7px 11px;
+  border: 1px solid transparent;
   border-radius: 99px;
   background: #edf0e7;
   color: var(--forest);
-  font-size: .78rem;
-  font-weight: 600;
+  font: 600 .78rem "DM Sans", sans-serif;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.adventure-mushroom-tag:hover {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: white;
+  transform: translateY(-1px);
 }
 
 @media(max-width:800px){
