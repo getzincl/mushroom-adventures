@@ -231,7 +231,22 @@ function renderAdventures(filter = "") {
   const grid = document.getElementById("adventureGrid");
   const q = filter.trim().toLowerCase();
   const list = adventures.filter(a =>
-    [a.title, a.date, a.area, a.summary, ...a.mushrooms].join(" ").toLowerCase().includes(q)
+    [
+      a.title,
+      a.date,
+      a.area,
+      a.summary,
+      ...(a.finds || []).map(find => {
+        const mushroom = mushrooms.find(
+          m => m.id === find.mushroomId
+        );
+
+        return mushroom ? mushroom.name : "";
+      })
+    ]
+      .join(" ")
+      .toLowerCase()
+      .includes(q)
   );
 
   if (!list.length) {
