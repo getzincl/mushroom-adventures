@@ -544,13 +544,6 @@ function openMushroomModal(name) {
 
       </div>      
 
-      <div class="personal-observation">
-        <strong>My observations</strong>
-        <p>
-          ${escapeHtml(mushroom.observations)}
-        </p>
-      </div>
-
     </div>
   `;
 
