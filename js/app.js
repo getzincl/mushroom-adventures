@@ -52,8 +52,8 @@ const adventures = [
 
 const mushrooms = [
   {
-    name: "Bear's Head",
     id: "bears-head",
+    name: "Bear's Head",
     scientific: "Hericium americanum",
     emoji: "🦁",
     images: ["images/bears-head.jpg"],
@@ -66,8 +66,9 @@ const mushrooms = [
   },
 
   {
-    name: "Bleeding Tooth",
+
     id: "bleeding-tooth",
+    name: "Bleeding Tooth",
     scientific: "Hydnellum peckii",
     emoji: "🩸",
     images: ["images/bleeding-tooth.jpg"],
@@ -80,8 +81,9 @@ const mushrooms = [
   },
 
   {
-    name: "Cauliflower Mushroom",
+
     id: "cauliflower-mushroom",
+    name: "Cauliflower Mushroom",
     scientific: "Sparassis",
     emoji: "🥦",
     images: ["images/cauliflower-mushroom.jpg"],
@@ -94,8 +96,9 @@ const mushrooms = [
   },
 
   {
-    name: "Chanterelle",
+
     id: "chanterelle",
+    name: "Chanterelle",
     scientific: "Cantharellus",
     emoji: "🍄",
     images: ["images/chanterelle.jpg",
@@ -110,8 +113,9 @@ const mushrooms = [
   },
 
   {
-    name: "Lobster Mushroom",
+
     id: "lobster-mushroom",
+    name: "Lobster Mushroom",
     scientific: "Hypomyces lactifluorum",
     emoji: "🦞",
     images: ["images/lobster-mushroom.jpg"],
@@ -124,8 +128,9 @@ const mushrooms = [
   },
 
   {
-    name: "Porcini",
+
     id: "porcini",
+    name: "Porcini",
     scientific: "Boletus",
     emoji: "🍄",
     images: ["images/porcini.jpg"],
