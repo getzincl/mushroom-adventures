@@ -12,7 +12,24 @@ const adventures = [
     summary: "A day in the forest looking for fall fungi and exploring new ground.",
     weather: "cool and damp after recent rain",
     foundBy: "Family",
-    mushrooms: ["chanterelle", "lobster-mushroom", "bears-head"],
+    finds: [
+      {
+        mushroomId: "chanterelle",
+        images: [
+          "images/gifford-chanterelle-1.jpg",
+          "images/gifford-chanterelle-2.jpg"
+        ],
+        notes: "We were specifically hoping to find chanterelles and ended up finding several promising specimens while exploring the forest floor."
+      },
+
+      {
+        mushroomId: "lobster-mushroom",
+        images: [
+          "images/gifford-lobster-1.jpg"
+        ],
+        notes: "We found a striking lobster mushroom while exploring the forest."
+      }
+    ],
     notes: "We were specifically hoping to find chanterelles and ended up finding several promising specimens while exploring the forest floor.",
     emoji: "🍄",
     image: "images/bears-head.jpg",
@@ -27,7 +44,30 @@ const adventures = [
     summary: "a short outing through mixed forest with a few promising finds",
     weather: "Cool forest morning",
     foundBy: "Family",
-    mushrooms: ["chanterelle", "lobster-mushroom", "cauliflower-mushroom"],
+    finds: [
+      {
+        mushroomId: "chanterelle",
+        images: [
+          "images/gifford-chanterelle-1.jpg",
+          "images/gifford-chanterelle-2.jpg"
+        ],
+        notes: "We were specifically hoping to find chanterelles and ended up finding several promising specimens while exploring the forest floor."
+      },
+      {
+        mushroomId: "lobster-mushroom",
+        images: [
+          "images/gifford-lobster-1.jpg"
+        ],
+        notes: "We found a striking lobster mushroom while exploring the forest."
+      },
+      {
+        mushroomId: "cauliflower-mushroom",
+        images: [
+          "images/gifford-cauliflower-1.jpg"
+        ],
+        notes: "We found a unique cauliflower mushroom while exploring the forest."
+      }
+    ],
     notes: "A short family outing through mixed forest. We kept an eye out for chanterelles and other fall fungi.",
     emoji: "🫈",
     image: "images/cauliflower-mushroom.jpg",
@@ -43,7 +83,23 @@ const adventures = [
     weather: "Cloudy dry day, no rain for a few days",
     foundBy: "Family",
     notes: "A family outing along the Big Pond Trail, first time in this area. Open to explore and find new fungi.",
-    mushrooms: ["chanterelle", "bleeding-tooth"],
+    finds: [
+      {
+        mushroomId: "chanterelle",
+        images: [
+          "images/gifford-chanterelle-1.jpg",
+          "images/gifford-chanterelle-2.jpg"
+        ],
+        notes: "We were specifically hoping to find chanterelles and ended up finding several promising specimens while exploring the forest floor."
+      },
+      {
+        mushroomId: "bleeding-tooth",
+        images: [
+          "images/bleeding-tooth.jpg"
+        ],
+        notes: "We found a striking bleeding tooth mushroom while exploring the forest."
+      }
+    ],
     emoji: "🌲",
     image: "images/bleeding-tooth.jpg",
     publicMap: [47.5, -122.7]
@@ -299,17 +355,36 @@ function openAdventureModal(id) {
       <h3>What We Found</h3>
 
       <div class="adventure-mushrooms">
-        ${adventure.mushrooms.map(mushroomId => {
-          const mushroom = mushrooms.find(m => m.id === mushroomId);
+        ${adventure.finds.map(find => {
+          const mushroom = mushrooms.find(m => m.id === find.mushroomId);
 
           if (!mushroom) return "";
 
           return `
-            <button
-              class="adventure-mushroom-tag"
-              data-mushroom="${escapeHtml(mushroom.id)}">
-              🍄 ${escapeHtml(mushroom.name)}
-            </button>
+            <div class="adventure-find">
+
+              <button
+                class="adventure-mushroom-tag"
+                data-mushroom="${escapeHtml(mushroom.id)}">
+                🍄 ${escapeHtml(mushroom.name)}
+              </button>
+
+              <p class="adventure-find-notes">
+                ${escapeHtml(find.notes || "")}
+              </p>
+
+              <div class="adventure-find-photos">
+
+                ${find.images.map(image => `
+                  <img
+                    src="${escapeHtml(image)}"
+                    alt="${escapeHtml(mushroom.name)} found during ${escapeHtml(adventure.title)}"
+                    loading="lazy">
+                `).join("")}
+
+              </div>
+
+            </div>
           `;
         }).join("")}
       </div>
@@ -522,9 +597,11 @@ function openMushroomModal(id) {
 
         <div class="mushroom-history-list">
           ${adventures
-            .filter(adventure =>
-              adventure.mushrooms.includes(mushroom.id)
-            )
+              .filter(adventure =>
+                adventure.finds.some(find =>
+                  find.mushroomId === mushroom.id
+                )
+              )
             .map(adventure => `
               <button
                 class="mushroom-history-card"
