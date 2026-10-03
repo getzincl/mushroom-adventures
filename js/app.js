@@ -467,7 +467,9 @@ function renderMushrooms(categoryFilter = "All", seasonFilter = null) {
   }
 
   grid.innerHTML = list.map(m => `
-    <article class="mushroom mushroom-card-clickable" data-mushroom="${escapeHtml(m.name)}">
+    <article 
+      class="mushroom mushroom-card-clickable" 
+      data-mushroom="${escapeHtml(m.name)}">
 
       <div class="mushroom-image">
         ${m.images && m.images.length
