@@ -153,7 +153,10 @@ const mushrooms = [
     name: "Cauliflower Mushroom",
     scientific: "Sparassis",
     emoji: "🥦",
-    images: ["images/cauliflower-mushroom.jpg"],
+    images: ["images/cauliflower-mushroom.jpg",
+              "images/high-cauliflower-1.jpg",
+              "images/high-cauliflower-2.jpg"
+    ],
     categories: ["Other"],
     seasons: ["Summer", "Fall"],
     habitat: "Usually found near the base of conifers or growing from buried wood and roots.",
@@ -169,7 +172,10 @@ const mushrooms = [
     scientific: "Cantharellus",
     emoji: "🍄",
     images: ["images/chanterelle.jpg",
-              "images/chanterelle-2.jpg"
+              "images/chanterelle-2.jpg",
+              "images/gifford-chanterelle-1.jpg",
+              "images/gifford-chanterelle-2.jpg",
+              "images/gifford-chanterelle-3.jpg"
             ],
     categories: ["Edible"],
     seasons: ["Summer", "Fall"],
@@ -185,7 +191,9 @@ const mushrooms = [
     name: "Lobster Mushroom",
     scientific: "Hypomyces lactifluorum",
     emoji: "🦞",
-    images: ["images/lobster-mushroom.jpg"],
+    images: ["images/lobster-mushroom.jpg",
+              "images/high-lobster-2.jpg"
+            ],
     categories: ["Edible"],
     seasons: ["Summer", "Fall"],
     habitat: "Found on the forest floor where the parasitic fungus colonizes other mushrooms.",
@@ -200,7 +208,10 @@ const mushrooms = [
     name: "Pigs Ear",
     scientific: "Gomphus clavatus",
     emoji: "🍄",
-    images: ["images/gifford-pigsear-2.jpg"],
+    images: ["images/gifford-pigsear-1.jpg",
+              "images/gifford-pigsear-2.jpg",
+              "images/gifford-pigsear-3.jpg"
+            ],
     categories: ["Edible"],
     seasons: ["Summer", "Fall"],
     habitat: "grows on moist, shady forest floors and rotten wood, where it forms symbiotic, mycorrhizal relationships with coniferous trees like true fir, spruce, Douglas fir, and hemlock.",
