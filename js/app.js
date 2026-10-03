@@ -497,6 +497,53 @@ function openMushroomModal(name) {
         </p>
       </div>
 
+      <div class="mushroom-history-section">
+
+        <p class="eyebrow">OUR FIELD JOURNAL</p>
+
+        <h3>Where We've Found It</h3>
+
+        <div class="mushroom-history-list">
+          ${adventures
+            .filter(adventure =>
+              adventure.mushrooms.includes(mushroom.name)
+            )
+            .map(adventure => `
+              <button
+                class="mushroom-history-card"
+                data-adventure="${escapeHtml(adventure.id)}">
+
+                <div class="history-card-image">
+                  ${adventure.image
+                    ? `<img
+                        src="${escapeHtml(adventure.image)}"
+                        alt="${escapeHtml(adventure.title)}">`
+                    : `<span>${escapeHtml(adventure.emoji)}</span>`
+                  }
+                </div>
+
+                <div class="history-card-info">
+
+                  <strong>${escapeHtml(adventure.title)}</strong>
+
+                  <span class="history-card-date">
+                    ${escapeHtml(adventure.date)}
+                  </span>
+
+                  <span class="history-card-location">
+                    📍 ${escapeHtml(adventure.area)}
+                  </span>
+
+                </div>
+
+                <span class="history-card-arrow">→</span>
+
+              </button>
+            `).join("")}
+        </div>
+
+      </div>      
+
       <div class="personal-observation">
         <strong>My observations</strong>
         <p>
@@ -506,6 +553,21 @@ function openMushroomModal(name) {
 
     </div>
   `;
+
+  body.querySelectorAll(".mushroom-history-card").forEach(button => {
+    button.addEventListener("click", event => {
+      event.preventDefault();
+      event.stopPropagation();
+
+      const adventureId = button.dataset.adventure;
+
+      closeMushroomModal();
+
+      setTimeout(() => {
+        openAdventureModal(adventureId);
+      }, 50);
+    });
+  });  
 
   modal.classList.remove("hidden");
   document.body.classList.add("modal-open");

@@ -741,6 +741,95 @@ footer{background:#19271f;color:#aab5ad;padding:25px 0}
   transform: translateY(-1px);
 }
 
+.mushroom-history-section {
+  border-top: 1px solid var(--line);
+  margin-top: 30px;
+  padding-top: 25px;
+}
+
+.mushroom-history-section h3 {
+  font-family: "Libre Baskerville", serif;
+  margin: 0 0 18px;
+}
+
+.mushroom-history-list {
+  display: grid;
+  gap: 10px;
+}
+
+.mushroom-history-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: white;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.mushroom-history-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--moss);
+  box-shadow: var(--shadow);
+}
+
+.history-card-image {
+  flex: 0 0 82px;
+  width: 82px;
+  height: 62px;
+  overflow: hidden;
+  border-radius: 7px;
+  background: #e6e1d6;
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+}
+
+.history-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.history-card-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.history-card-info strong,
+.history-card-info span {
+  display: block;
+}
+
+.history-card-info strong {
+  font-family: "Libre Baskerville", serif;
+  font-size: .9rem;
+  margin-bottom: 3px;
+}
+
+.history-card-date {
+  color: var(--moss);
+  font-size: .72rem;
+  font-weight: 600;
+}
+
+.history-card-location {
+  color: var(--muted);
+  font-size: .76rem;
+}
+
+.history-card-arrow {
+  color: var(--moss);
+  font-size: 1.2rem;
+  padding-right: 5px;
+}
+
 @media(max-width:800px){
  nav{display:none}.hero-inner{grid-template-columns:1fr;min-height:650px}.hero-art{height:270px}
  .card-grid{grid-template-columns:1fr}.mushroom-grid{grid-template-columns:repeat(2,1fr)}
