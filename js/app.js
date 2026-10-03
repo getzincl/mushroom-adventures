@@ -12,7 +12,7 @@ const adventures = [
     summary: "A day in the forest looking for fall fungi and exploring new ground.",
     weather: "cool and damp after recent rain",
     foundBy: "Family",
-    mushrooms: ["Chanterelle", "Lobster Mushroom", "Bear's Head"],
+    mushrooms: ["chanterelle", "lobster-mushroom", "bears-head"],
     notes: "We were specifically hoping to find chanterelles and ended up finding several promising specimens while exploring the forest floor.",
     emoji: "🍄",
     image: "images/bears-head.jpg",
@@ -27,7 +27,7 @@ const adventures = [
     summary: "a short outing through mixed forest with a few promising finds",
     weather: "Cool forest morning",
     foundBy: "Family",
-    mushrooms: ["Chanterelle", "Lobster Mushroom", "Cauliflower Mushroom"],
+    mushrooms: ["chanterelle", "lobster-mushroom", "cauliflower-mushroom"],
     notes: "A short family outing through mixed forest. We kept an eye out for chanterelles and other fall fungi.",
     emoji: "🫈",
     image: "images/cauliflower-mushroom.jpg",
@@ -43,7 +43,7 @@ const adventures = [
     weather: "Cloudy dry day, no rain for a few days",
     foundBy: "Family",
     notes: "A family outing along the Big Pond Trail, first time in this area. Open to explore and find new fungi.",
-    mushrooms: ["Chanterelle", "Bleeding Tooth"],
+    mushrooms: ["chanterelle", "bleeding-tooth"],
     emoji: "🌲",
     image: "images/bleeding-tooth.jpg",
     publicMap: [47.5, -122.7]
@@ -53,6 +53,7 @@ const adventures = [
 const mushrooms = [
   {
     name: "Bear's Head",
+    id: "bears-head",
     scientific: "Hericium americanum",
     emoji: "🦁",
     images: ["images/bears-head.jpg"],
@@ -66,6 +67,7 @@ const mushrooms = [
 
   {
     name: "Bleeding Tooth",
+    id: "bleeding-tooth",
     scientific: "Hydnellum peckii",
     emoji: "🩸",
     images: ["images/bleeding-tooth.jpg"],
@@ -79,6 +81,7 @@ const mushrooms = [
 
   {
     name: "Cauliflower Mushroom",
+    id: "cauliflower-mushroom",
     scientific: "Sparassis",
     emoji: "🥦",
     images: ["images/cauliflower-mushroom.jpg"],
@@ -92,6 +95,7 @@ const mushrooms = [
 
   {
     name: "Chanterelle",
+    id: "chanterelle",
     scientific: "Cantharellus",
     emoji: "🍄",
     images: ["images/chanterelle.jpg",
@@ -107,6 +111,7 @@ const mushrooms = [
 
   {
     name: "Lobster Mushroom",
+    id: "lobster-mushroom",
     scientific: "Hypomyces lactifluorum",
     emoji: "🦞",
     images: ["images/lobster-mushroom.jpg"],
@@ -120,6 +125,7 @@ const mushrooms = [
 
   {
     name: "Porcini",
+    id: "porcini",
     scientific: "Boletus",
     emoji: "🍄",
     images: ["images/porcini.jpg"],
@@ -288,13 +294,19 @@ function openAdventureModal(id) {
       <h3>What We Found</h3>
 
       <div class="adventure-mushrooms">
-        ${adventure.mushrooms.map(mushroomName => `
-          <button
-            class="adventure-mushroom-tag"
-            data-mushroom="${escapeHtml(mushroomName)}">
-            🍄 ${escapeHtml(mushroomName)}
-          </button>
-        `).join("")}
+        ${adventure.mushrooms.map(mushroomId => {
+          const mushroom = mushrooms.find(m => m.id === mushroomId);
+
+          if (!mushroom) return "";
+
+          return `
+            <button
+              class="adventure-mushroom-tag"
+              data-mushroom="${escapeHtml(mushroom.id)}">
+              🍄 ${escapeHtml(mushroom.name)}
+            </button>
+          `;
+        }).join("")}
       </div>
 
     </div>
@@ -305,12 +317,12 @@ function openAdventureModal(id) {
       event.preventDefault();
       event.stopPropagation();
 
-      const mushroomName = button.dataset.mushroom;
+      const mushroomId = button.dataset.mushroom;
 
       closeAdventureModal();
 
       setTimeout(() => {
-        openMushroomModal(mushroomName);
+        openMushroomModal(mushroomId);
       }, 50);
     });
   });
@@ -404,8 +416,8 @@ function renderMushrooms(categoryFilter = "All", seasonFilter = null) {
   updateMushroomCount(list.length);
 }
 
-function openMushroomModal(name) {
-  const mushroom = mushrooms.find(m => m.name === name);
+function openMushroomModal(id) {
+  const mushroom = mushrooms.find(m => m.id === id);
 
   if (!mushroom) return;
 
@@ -506,7 +518,7 @@ function openMushroomModal(name) {
         <div class="mushroom-history-list">
           ${adventures
             .filter(adventure =>
-              adventure.mushrooms.includes(mushroom.name)
+              adventure.mushrooms.includes(mushroom.id)
             )
             .map(adventure => `
               <button
