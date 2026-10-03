@@ -854,7 +854,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("adventureCount").textContent = adventures.length;
   document.getElementById("mushroomCount").textContent =
-    new Set(adventures.flatMap(a => a.mushrooms)).size;
+    new Set(
+      adventures.flatMap(a =>
+        a.finds.map(find => find.mushroomId)
+      )
+    ).size;
   document.getElementById("search").addEventListener("input", e => renderAdventures(e.target.value)
   );
 
