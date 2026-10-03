@@ -281,9 +281,15 @@ function renderAdventures(filter = "") {
         </p>
 
         <div class="tags">
-          ${a.mushrooms.map(m =>
-            `<span class="tag">🍄 ${escapeHtml(m)}</span>`
-          ).join("")}
+          ${(a.finds || []).map(find => {
+            const mushroom = mushrooms.find(
+              m => m.id === find.mushroomId
+            );
+
+            return mushroom
+              ? `<span class="tag">🍄 ${escapeHtml(mushroom.name)}</span>`
+              : "";
+          }).join("")}
         </div>
       </div>
 
