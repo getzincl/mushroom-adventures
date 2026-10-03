@@ -17,15 +17,24 @@ const adventures = [
         mushroomId: "chanterelle",
         images: [
           "images/gifford-chanterelle-1.jpg",
-          "images/gifford-chanterelle-2.jpg"
+          "images/gifford-chanterelle-2.jpg",
+          "images/gifford-chanterelle-3.jpg"
         ],
         notes: "We were specifically hoping to find chanterelles and ended up finding several promising specimens while exploring the forest floor."
       },
-
+      {
+        mushroomId: "pigs-ear",
+        images: [
+          "images/gifford-pigsear-1.jpg",
+          "images/gifford-pigsear-2.jpg",
+          "images/gifford-pigsear-3.jpg"
+        ],
+        notes: "We were specifically hoping to find chanterelles and ended up finding several promising specimens while exploring the forest floor."
+      },
       {
         mushroomId: "lobster-mushroom",
         images: [
-          "images/gifford-lobster-1.jpg"
+          "images/lobster-mushroom.jpg"
         ],
         notes: "We found a striking lobster mushroom while exploring the forest."
       }
@@ -56,14 +65,16 @@ const adventures = [
       {
         mushroomId: "lobster-mushroom",
         images: [
-          "images/gifford-lobster-1.jpg"
+          "images/high-lobster-2.jpg"
         ],
         notes: "We found a striking lobster mushroom while exploring the forest."
       },
       {
         mushroomId: "cauliflower-mushroom",
         images: [
-          "images/gifford-cauliflower-1.jpg"
+          "images/gifford-cauliflower-1.jpg",
+          "images/high-cauliflower-1.jpg",
+          "images/high-cauliflower-2.jpg"
         ],
         notes: "We found a unique cauliflower mushroom while exploring the forest."
       }
@@ -180,6 +191,21 @@ const mushrooms = [
     habitat: "Found on the forest floor where the parasitic fungus colonizes other mushrooms.",
     identification: "The host mushroom becomes covered in a hard orange-red outer layer with a distorted lobster-like appearance.",
     note: "A parasitic fungus that transforms another mushroom into a distinctive orange-red lobster-like form.",
+    observations: "Add your own observations here as you encounter this mushroom."
+  },
+
+    {
+
+    id: "pigs-ear",
+    name: "Pigs Ear",
+    scientific: "Gomphus clavatus",
+    emoji: "🍄",
+    images: ["images/gifford-pigsear-2.jpg"],
+    categories: ["Edible"],
+    seasons: ["Summer", "Fall"],
+    habitat: "grows on moist, shady forest floors and rotten wood, where it forms symbiotic, mycorrhizal relationships with coniferous trees like true fir, spruce, Douglas fir, and hemlock.",
+    identification: "identified by its fleshy, fan- or funnel-shaped body with a pinkish-purple cap and deeply wrinkled, vein-like ridges instead of true gills.",
+    note: "while it is a prized edible species, you must avoid harvesting old or insect-damaged specimens, as this mushroom is highly prone to maggot infestations and can decay quickly.",
     observations: "Add your own observations here as you encounter this mushroom."
   },
 
