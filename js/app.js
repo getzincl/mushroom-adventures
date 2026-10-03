@@ -300,6 +300,21 @@ function openAdventureModal(id) {
     </div>
   `;
 
+  body.querySelectorAll(".adventure-mushroom-tag").forEach(button => {
+    button.addEventListener("click", event => {
+      event.preventDefault();
+      event.stopPropagation();
+
+      const mushroomName = button.dataset.mushroom;
+
+      closeAdventureModal();
+
+      setTimeout(() => {
+        openMushroomModal(mushroomName);
+      }, 50);
+    });
+  });
+
   modal.classList.remove("hidden");
   document.body.classList.add("modal-open");
 }
@@ -491,13 +506,6 @@ function openMushroomModal(name) {
 
     </div>
   `;
-
-  body.querySelectorAll(".adventure-mushroom-tag").forEach(button => {
-  button.addEventListener("click", () => {
-    closeAdventureModal();
-    openMushroomModal(button.dataset.mushroom);
-  });
-});
 
   modal.classList.remove("hidden");
   document.body.classList.add("modal-open");
