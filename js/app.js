@@ -559,7 +559,7 @@ function openAdventureModal(id) {
 
       setTimeout(() => {
         openMushroomModal(mushroomId);
-      }, 50);
+      }, 20);
     });
   });
 
@@ -680,7 +680,7 @@ function openRecipeModal(id) {
 
       setTimeout(() => {
         openMushroomModal(mushroomId);
-      }, 50);
+      }, 20);
     });
   }
 
@@ -852,7 +852,7 @@ function renderRecipes() {
 
       setTimeout(() => {
         openRecipeModal(recipeId);
-      }, 50);
+      }, 20);
     });
   });
 }
@@ -1013,7 +1013,7 @@ function openMushroomModal(id) {
 
       setTimeout(() => {
         openAdventureModal(adventureId);
-      }, 50);
+      },20);
     });
   });  
 
