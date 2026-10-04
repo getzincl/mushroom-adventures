@@ -818,7 +818,10 @@ function renderRecipes() {
   }).join("");
 
   grid.querySelectorAll(".recipe-card").forEach(card => {
-    card.addEventListener("click", function () {
+    card.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+
       const recipeId = this.getAttribute("data-recipe");
 
       console.log("Recipe clicked:", recipeId);
