@@ -117,6 +117,56 @@ h2{font-size:clamp(1.8rem,4vw,2.7rem)}
   margin: 0;
 }
 
+/* =========================
+   RECIPE CARDS
+   ========================= */
+
+.recipe-card {
+  cursor: pointer;
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    border-color .2s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--moss);
+  box-shadow: var(--shadow);
+}
+
+.recipe-card .card-image {
+  position: relative;
+}
+
+.recipe-card .card-location {
+  color: var(--moss);
+  font-size: .75rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.recipe-card h3 {
+  font-family: "Libre Baskerville", serif;
+  margin-bottom: 8px;
+}
+
+.recipe-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.recipe-meta span {
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #edf0e7;
+  color: var(--forest);
+  font-size: .72rem;
+  font-weight: 600;
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;
