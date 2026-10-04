@@ -654,6 +654,67 @@ function renderMushrooms(categoryFilter = "All", seasonFilter = null) {
   updateMushroomCount(list.length);
 }
 
+function renderRecipes() {
+  const grid = document.getElementById("recipeGrid");
+
+  if (!grid) return;
+
+  grid.innerHTML = recipes.map(recipe => {
+
+    const mushroom = mushrooms.find(
+      m => m.id === recipe.mushroomId
+    );
+
+    return `
+      <article
+        class="card recipe-card"
+        data-recipe="${escapeHtml(recipe.id)}">
+
+        <div class="card-image">
+
+          ${recipe.image
+            ? `<img
+                src="${escapeHtml(recipe.image)}"
+                alt="${escapeHtml(recipe.name)}"
+                loading="lazy">`
+            : `<span aria-hidden="true">🍳</span>`
+          }
+
+        </div>
+
+        <div class="card-body">
+
+          <p class="card-location">
+            🍄 ${mushroom
+              ? escapeHtml(mushroom.name)
+              : "Mushroom Recipe"}
+          </p>
+
+          <h3>
+            ${escapeHtml(recipe.name)}
+          </h3>
+
+          <p class="card-summary">
+            ${escapeHtml(recipe.description)}
+          </p>
+
+          <div class="recipe-meta">
+
+            <span>⏱ ${escapeHtml(recipe.cookTime)}</span>
+
+            <span>👨‍🍳 ${escapeHtml(recipe.difficulty)}</span>
+
+            <span>🍽 ${escapeHtml(String(recipe.servings))}</span>
+
+          </div>
+
+        </div>
+
+      </article>
+    `;
+  }).join("");
+}
+
 function openMushroomModal(id) {
   const mushroom = mushrooms.find(m => m.id === id);
 
@@ -984,6 +1045,7 @@ function setupPrivateGate() {
 document.addEventListener("DOMContentLoaded", () => {
   renderAdventures();
   renderMushrooms();
+  renderRecipes();
   initMap();
   setupPrivateGate();
 
