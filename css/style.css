@@ -910,6 +910,181 @@ footer{background:#19271f;color:#aab5ad;padding:25px 0}
   display: block;
 }
 
+/* =========================
+   RECIPE MODAL
+   ========================= */
+
+.recipe-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.recipe-modal.hidden {
+  display: none;
+}
+
+.recipe-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 30, 24, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.recipe-modal-content {
+  position: relative;
+  z-index: 1;
+  width: min(760px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
+}
+
+.recipe-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.recipe-modal-close:hover {
+  background: var(--line);
+}
+
+.recipe-modal-content h2 {
+  font-family: "Libre Baskerville", serif;
+  font-size: 2rem;
+  margin: 4px 50px 6px 0;
+}
+
+.recipe-modal-mushroom {
+  color: var(--moss);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.recipe-modal-image {
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.recipe-modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recipe-modal-image span {
+  font-size: 5rem;
+}
+
+.recipe-modal-description {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.recipe-modal-details {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.recipe-modal-details > div {
+  padding: 14px;
+  border-radius: 12px;
+  background: var(--cream);
+}
+
+.recipe-modal-details strong {
+  display: block;
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.recipe-modal-details span {
+  font-weight: 600;
+}
+
+.recipe-section {
+  margin-top: 30px;
+}
+
+.recipe-section h3 {
+  font-family: "Libre Baskerville", serif;
+  margin-bottom: 14px;
+}
+
+.recipe-ingredients {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.recipe-ingredients li {
+  margin-bottom: 8px;
+}
+
+.recipe-instructions {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.recipe-instructions li {
+  margin-bottom: 14px;
+}
+
+/* Mobile recipe modal */
+
+@media (max-width: 600px) {
+  .recipe-modal {
+    padding: 12px;
+  }
+
+  .recipe-modal-content {
+    padding: 20px;
+    max-height: 94vh;
+  }
+
+  .recipe-modal-image {
+    height: 250px;
+  }
+
+  .recipe-modal-details {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .recipe-modal-content h2 {
+    font-size: 1.55rem;
+  }
+}
+
 @media(max-width:800px){
  nav{display:none}.hero-inner{grid-template-columns:1fr;min-height:650px}.hero-art{height:270px}
  .card-grid{grid-template-columns:1fr}.mushroom-grid{grid-template-columns:repeat(2,1fr)}
