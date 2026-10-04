@@ -243,6 +243,97 @@ const mushrooms = [
   }
 ];
 
+const recipes = [
+  {
+    id: "chanterelle-butter-pasta",
+    name: "Chanterelle Butter Pasta",
+    mushroomId: "chanterelle",
+    description: "A simple pasta dish that lets the rich, earthy flavor of fresh chanterelles shine.",
+    prepTime: "10 minutes",
+    cookTime: "20 minutes",
+    difficulty: "Easy",
+    servings: 4,
+    image: "images/recipes/chanterelle-butter-pasta.jpg",
+
+    ingredients: [
+      "8 oz fresh chanterelles",
+      "12 oz pasta",
+      "4 tbsp butter",
+      "2 cloves garlic, minced",
+      "1/4 cup Parmesan cheese",
+      "Salt and pepper to taste"
+    ],
+
+    instructions: [
+      "Clean the chanterelles and cut larger mushrooms into smaller pieces.",
+      "Cook the pasta according to the package directions.",
+      "Melt the butter in a large skillet and sauté the chanterelles and garlic.",
+      "Drain the pasta and add it to the skillet.",
+      "Toss with Parmesan, season with salt and pepper, and serve."
+    ]
+  },
+
+  {
+    id: "creamy-chanterelle-soup",
+    name: "Creamy Chanterelle Soup",
+    mushroomId: "chanterelle",
+    description: "A warm and creamy mushroom soup perfect for a cool Pacific Northwest evening.",
+    prepTime: "15 minutes",
+    cookTime: "30 minutes",
+    difficulty: "Easy",
+    servings: 4,
+    image: "images/recipes/creamy-chanterelle-soup.jpg",
+
+    ingredients: [
+      "8 oz fresh chanterelles",
+      "2 tbsp butter",
+      "1 small onion, diced",
+      "2 cloves garlic, minced",
+      "3 cups chicken or vegetable broth",
+      "1 cup heavy cream",
+      "Salt and pepper to taste"
+    ],
+
+    instructions: [
+      "Clean and slice the chanterelles.",
+      "Melt the butter in a large pot and sauté the onion and garlic.",
+      "Add the chanterelles and cook until softened.",
+      "Add the broth and simmer for about 15 minutes.",
+      "Stir in the cream and season with salt and pepper.",
+      "Simmer gently for another 5 minutes and serve."
+    ]
+  },
+
+  {
+    id: "lobster-mushroom-skillet",
+    name: "Lobster Mushroom Skillet",
+    mushroomId: "lobster-mushroom",
+    description: "A simple skillet preparation for enjoying the firm texture and rich color of lobster mushrooms.",
+    prepTime: "10 minutes",
+    cookTime: "15 minutes",
+    difficulty: "Easy",
+    servings: 3,
+    image: "images/recipes/lobster-mushroom-skillet.jpg",
+
+    ingredients: [
+      "8 oz lobster mushrooms",
+      "2 tbsp butter",
+      "1 tbsp olive oil",
+      "2 cloves garlic, minced",
+      "1 tbsp fresh parsley",
+      "Salt and pepper to taste"
+    ],
+
+    instructions: [
+      "Clean the lobster mushrooms and slice them into bite-sized pieces.",
+      "Heat the butter and olive oil in a skillet.",
+      "Add the mushrooms and cook until browned and tender.",
+      "Add the garlic and cook for another minute.",
+      "Season with salt and pepper and finish with fresh parsley."
+    ]
+  }
+];
+
 
 // ------------------------------------------------------------
 // Lightweight private gate
