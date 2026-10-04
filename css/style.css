@@ -1099,6 +1099,52 @@ footer{background:#19271f;color:#aab5ad;padding:25px 0}
   }
 }
 
+/* =========================
+   RECIPE INGREDIENTS
+   ========================= */
+
+.recipe-ingredients {
+  list-style: none;
+  padding: 0;
+}
+
+.recipe-ingredients li {
+  margin-bottom: 10px;
+}
+
+.recipe-ingredient {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+
+.recipe-ingredient:hover {
+  background: var(--cream);
+}
+
+.recipe-ingredient input {
+  width: 18px;
+  height: 18px;
+  margin-top: 4px;
+  flex-shrink: 0;
+  accent-color: var(--moss);
+}
+
+.recipe-ingredient span {
+  transition:
+    color .2s ease,
+    text-decoration .2s ease;
+}
+
+.recipe-ingredient input:checked + span {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
 @media(max-width:800px){
  nav{display:none}.hero-inner{grid-template-columns:1fr;min-height:650px}.hero-art{height:270px}
  .card-grid{grid-template-columns:1fr}.mushroom-grid{grid-template-columns:repeat(2,1fr)}

@@ -645,8 +645,15 @@ function openRecipeModal(id) {
       <h3>Ingredients</h3>
 
       <ul class="recipe-ingredients">
-        ${recipe.ingredients.map(ingredient => `
-          <li>${escapeHtml(ingredient)}</li>
+        ${recipe.ingredients.map((ingredient, index) => `
+          <li>
+            <label class="recipe-ingredient">
+              <input
+                type="checkbox"
+                data-ingredient="${index}">
+              <span>${escapeHtml(ingredient)}</span>
+            </label>
+          </li>
         `).join("")}
       </ul>
 
