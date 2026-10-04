@@ -818,10 +818,14 @@ function renderRecipes() {
   }).join("");
 
   grid.querySelectorAll(".recipe-card").forEach(card => {
-  card.addEventListener("click", () => {
-    openRecipeModal(card.dataset.recipe);
+    card.addEventListener("click", function () {
+      const recipeId = this.getAttribute("data-recipe");
+
+      console.log("Recipe clicked:", recipeId);
+
+      openRecipeModal(recipeId);
+    });
   });
-});
 }
 
 function openMushroomModal(id) {
