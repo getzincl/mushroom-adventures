@@ -666,8 +666,15 @@ function openRecipeModal(id) {
       <h3>Instructions</h3>
 
       <ol class="recipe-instructions">
-        ${recipe.instructions.map(step => `
-          <li>${escapeHtml(step)}</li>
+        ${recipe.instructions.map((step, index) => `
+          <li>
+            <label class="recipe-step">
+              <input
+                type="checkbox"
+                data-step="${index}">
+              <span>${escapeHtml(step)}</span>
+            </label>
+          </li>
         `).join("")}
       </ol>
 

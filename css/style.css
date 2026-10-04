@@ -1145,6 +1145,70 @@ footer{background:#19271f;color:#aab5ad;padding:25px 0}
   text-decoration: line-through;
 }
 
+/* =========================
+   RECIPE INSTRUCTIONS
+   ========================= */
+
+.recipe-instructions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: recipe-step;
+}
+
+.recipe-instructions li {
+  counter-increment: recipe-step;
+  margin-bottom: 12px;
+}
+
+.recipe-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+
+.recipe-step:hover {
+  background: var(--cream);
+}
+
+.recipe-step::before {
+  content: counter(recipe-step);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--forest);
+  color: white;
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.recipe-step input {
+  width: 18px;
+  height: 18px;
+  margin-top: 5px;
+  flex-shrink: 0;
+  accent-color: var(--moss);
+}
+
+.recipe-step span {
+  transition:
+    color .2s ease,
+    text-decoration .2s ease;
+}
+
+.recipe-step input:checked + span {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
 @media(max-width:800px){
  nav{display:none}.hero-inner{grid-template-columns:1fr;min-height:650px}.hero-art{height:270px}
  .card-grid{grid-template-columns:1fr}.mushroom-grid{grid-template-columns:repeat(2,1fr)}
