@@ -1209,6 +1209,45 @@ footer{background:#19271f;color:#aab5ad;padding:25px 0}
   text-decoration: line-through;
 }
 
+/* =========================
+   RECIPE FILTERS
+   ========================= */
+
+.recipe-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0 28px;
+}
+
+.recipe-filter {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  padding: 9px 15px;
+  border-radius: 999px;
+  font-family: "DM Sans", sans-serif;
+  font-size: .82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background .2s ease,
+    color .2s ease,
+    border-color .2s ease,
+    transform .2s ease;
+}
+
+.recipe-filter:hover {
+  transform: translateY(-1px);
+  border-color: var(--moss);
+}
+
+.recipe-filter.active {
+  background: var(--forest);
+  color: white;
+  border-color: var(--forest);
+}
+
 @media(max-width:800px){
  nav{display:none}.hero-inner{grid-template-columns:1fr;min-height:650px}.hero-art{height:270px}
  .card-grid{grid-template-columns:1fr}.mushroom-grid{grid-template-columns:repeat(2,1fr)}

@@ -797,12 +797,70 @@ function renderMushrooms(categoryFilter = "All", seasonFilter = null) {
   updateMushroomCount(list.length);
 }
 
-function renderRecipes() {
+function renderRecipeFilters() {
+  const filters = document.getElementById("recipeFilters");
+
+  if (!filters) return;
+
+  const mushroomIds = [
+    ...new Set(
+      recipes.map(recipe => recipe.mushroomId)
+    )
+  ];
+
+  filters.innerHTML = `
+    <button
+      class="recipe-filter active"
+      data-mushroom="all">
+      All Recipes
+    </button>
+
+    ${mushroomIds.map(mushroomId => {
+
+      const mushroom = mushrooms.find(
+        m => m.id === mushroomId
+      );
+
+      return mushroom
+        ? `
+          <button
+            class="recipe-filter"
+            data-mushroom="${escapeHtml(mushroom.id)}">
+            🍄 ${escapeHtml(mushroom.name)}
+          </button>
+        `
+        : "";
+
+    }).join("")}
+  `;
+
+  filters.querySelectorAll(".recipe-filter").forEach(button => {
+    button.addEventListener("click", () => {
+
+      filters
+        .querySelectorAll(".recipe-filter")
+        .forEach(btn => btn.classList.remove("active"));
+
+      button.classList.add("active");
+
+      renderRecipes(button.dataset.mushroom);
+    });
+  });
+}
+
+function renderRecipes(filter = "all") {
   const grid = document.getElementById("recipeGrid");
 
   if (!grid) return;
 
-  grid.innerHTML = recipes.map(recipe => {
+  const visibleRecipes =
+  filter === "all"
+    ? recipes
+    : recipes.filter(
+        recipe => recipe.mushroomId === filter
+      );
+
+  grid.innerHTML = visibleRecipes.map(recipe => {
 
     const mushroom = mushrooms.find(
       m => m.id === recipe.mushroomId
@@ -1201,6 +1259,7 @@ function setupPrivateGate() {
 document.addEventListener("DOMContentLoaded", () => {
   renderAdventures();
   renderMushrooms();
+  renderRecipeFilters();
   renderRecipes();
   initMap();
   setupPrivateGate();
