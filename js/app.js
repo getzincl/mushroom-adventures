@@ -586,11 +586,20 @@ function openRecipeModal(id) {
       ${escapeHtml(recipe.name)}
     </h2>
 
-    <p class="recipe-modal-mushroom">
-      🍄 ${mushroom
-        ? escapeHtml(mushroom.name)
-        : "Mushroom Recipe"}
-    </p>
+    ${mushroom
+      ? `
+        <button
+          class="recipe-mushroom-link"
+          data-mushroom="${escapeHtml(mushroom.id)}">
+          🍄 ${escapeHtml(mushroom.name)}
+        </button>
+      `
+      : `
+        <p class="recipe-modal-mushroom">
+          🍄 Mushroom Recipe
+        </p>
+      `
+    }
 
     <div class="recipe-modal-image">
       ${recipe.image
@@ -657,6 +666,23 @@ function openRecipeModal(id) {
 
     </div>
   `;
+
+  const mushroomLink = body.querySelector(".recipe-mushroom-link");
+
+  if (mushroomLink) {
+    mushroomLink.addEventListener("click", event => {
+      event.preventDefault();
+      event.stopPropagation();
+
+      const mushroomId = mushroomLink.dataset.mushroom;
+
+      closeRecipeModal();
+
+      setTimeout(() => {
+        openMushroomModal(mushroomId);
+      }, 50);
+    });
+  }
 
   modal.classList.remove("hidden");
   document.body.classList.add("modal-open");

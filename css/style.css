@@ -1060,6 +1060,20 @@ footer{background:#19271f;color:#aab5ad;padding:25px 0}
   margin-bottom: 14px;
 }
 
+.recipe-mushroom-link {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--moss);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.recipe-mushroom-link:hover {
+  text-decoration: underline;
+}
+
 /* Mobile recipe modal */
 
 @media (max-width: 600px) {
