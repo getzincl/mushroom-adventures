@@ -1248,6 +1248,18 @@ footer{background:#19271f;color:#aab5ad;padding:25px 0}
   border-color: var(--forest);
 }
 
+.recipe-card-link {
+  margin-top: 18px;
+  color: var(--moss);
+  font-size: .82rem;
+  font-weight: 700;
+  transition: transform .2s ease;
+}
+
+.recipe-card:hover .recipe-card-link {
+  transform: translateX(4px);
+}
+
 @media(max-width:800px){
  nav{display:none}.hero-inner{grid-template-columns:1fr;min-height:650px}.hero-art{height:270px}
  .card-grid{grid-template-columns:1fr}.mushroom-grid{grid-template-columns:repeat(2,1fr)}

@@ -909,6 +909,10 @@ function renderRecipes(filter = "all") {
 
           </div>
 
+          <div class="recipe-card-link">
+            View Recipe →
+          </div>
+
         </div>
 
       </article>
