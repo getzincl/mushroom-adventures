@@ -567,6 +567,109 @@ function openAdventureModal(id) {
   document.body.classList.add("modal-open");
 }
 
+function openRecipeModal(id) {
+  const recipe = recipes.find(r => r.id === id);
+
+  if (!recipe) return;
+
+  const modal = document.getElementById("recipeModal");
+  const body = document.getElementById("recipeModalBody");
+
+  const mushroom = mushrooms.find(
+    m => m.id === recipe.mushroomId
+  );
+
+  body.innerHTML = `
+    <p class="eyebrow">FROM THE FOREST TO THE TABLE</p>
+
+    <h2 id="recipeModalTitle">
+      ${escapeHtml(recipe.name)}
+    </h2>
+
+    <p class="recipe-modal-mushroom">
+      🍄 ${mushroom
+        ? escapeHtml(mushroom.name)
+        : "Mushroom Recipe"}
+    </p>
+
+    <div class="recipe-modal-image">
+      ${recipe.image
+        ? `<img
+            src="${escapeHtml(recipe.image)}"
+            alt="${escapeHtml(recipe.name)}">`
+        : `<span aria-hidden="true">🍳</span>`
+      }
+    </div>
+
+    <p class="recipe-modal-description">
+      ${escapeHtml(recipe.description)}
+    </p>
+
+    <div class="recipe-modal-details">
+
+      <div>
+        <strong>Prep</strong>
+        <span>⏱ ${escapeHtml(recipe.prepTime)}</span>
+      </div>
+
+      <div>
+        <strong>Cook</strong>
+        <span>🔥 ${escapeHtml(recipe.cookTime)}</span>
+      </div>
+
+      <div>
+        <strong>Difficulty</strong>
+        <span>👨‍🍳 ${escapeHtml(recipe.difficulty)}</span>
+      </div>
+
+      <div>
+        <strong>Servings</strong>
+        <span>🍽 ${escapeHtml(String(recipe.servings))}</span>
+      </div>
+
+    </div>
+
+    <div class="recipe-section">
+
+      <p class="eyebrow">WHAT YOU'LL NEED</p>
+
+      <h3>Ingredients</h3>
+
+      <ul class="recipe-ingredients">
+        ${recipe.ingredients.map(ingredient => `
+          <li>${escapeHtml(ingredient)}</li>
+        `).join("")}
+      </ul>
+
+    </div>
+
+    <div class="recipe-section">
+
+      <p class="eyebrow">LET'S COOK</p>
+
+      <h3>Instructions</h3>
+
+      <ol class="recipe-instructions">
+        ${recipe.instructions.map(step => `
+          <li>${escapeHtml(step)}</li>
+        `).join("")}
+      </ol>
+
+    </div>
+  `;
+
+  modal.classList.remove("hidden");
+  document.body.classList.add("modal-open");
+}
+
+function closeRecipeModal() {
+  document
+    .getElementById("recipeModal")
+    .classList.add("hidden");
+
+  document.body.classList.remove("modal-open");
+}
+
 function closeAdventureModal() {
   document
     .getElementById("adventureModal")
@@ -713,6 +816,12 @@ function renderRecipes() {
       </article>
     `;
   }).join("");
+
+  grid.querySelectorAll(".recipe-card").forEach(card => {
+  card.addEventListener("click", () => {
+    openRecipeModal(card.dataset.recipe);
+  });
+});
 }
 
 function openMushroomModal(id) {
@@ -1065,10 +1174,19 @@ document.addEventListener("DOMContentLoaded", () => {
     .querySelector(".adventure-modal-backdrop")
     .addEventListener("click", closeAdventureModal);
 
+  document
+    .getElementById("closeRecipeModal")
+    .addEventListener("click", closeRecipeModal);
+
+  document
+    .querySelector(".recipe-modal-backdrop")
+    .addEventListener("click", closeRecipeModal);
+
   document.addEventListener("keydown", event => {
     if (event.key === "Escape") {
       closeMushroomModal();
       closeAdventureModal();
+      closeRecipeModal();
     }
   });
 
