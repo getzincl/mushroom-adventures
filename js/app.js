@@ -824,9 +824,16 @@ function renderRecipes() {
 
       const recipeId = this.getAttribute("data-recipe");
 
-      console.log("Recipe clicked:", recipeId);
+      console.log("1 - Recipe clicked:", recipeId);
 
       openRecipeModal(recipeId);
+
+      console.log("2 - After openRecipeModal");
+
+      console.log(
+        "3 - Modal hidden:",
+        document.getElementById("recipeModal").classList.contains("hidden")
+      );
     });
   });
 }
