@@ -818,22 +818,17 @@ function renderRecipes() {
   }).join("");
 
   grid.querySelectorAll(".recipe-card").forEach(card => {
-    card.addEventListener("click", function (event) {
+    card.addEventListener("click", event => {
       event.preventDefault();
       event.stopPropagation();
 
-      const recipeId = this.getAttribute("data-recipe");
+      const recipeId = card.dataset.recipe;
 
-      console.log("1 - Recipe clicked:", recipeId);
+      console.log("Recipe clicked:", recipeId);
 
-      openRecipeModal(recipeId);
-
-      console.log("2 - After openRecipeModal");
-
-      console.log(
-        "3 - Modal hidden:",
-        document.getElementById("recipeModal").classList.contains("hidden")
-      );
+      setTimeout(() => {
+        openRecipeModal(recipeId);
+      }, 50);
     });
   });
 }
