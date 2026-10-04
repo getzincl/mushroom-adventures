@@ -824,8 +824,6 @@ function renderRecipes() {
 
       const recipeId = card.dataset.recipe;
 
-      console.log("Recipe clicked:", recipeId);
-
       setTimeout(() => {
         openRecipeModal(recipeId);
       }, 50);
