@@ -16,18 +16,18 @@ const adventures = [
       {
         mushroomId: "chanterelle",
         images: [
-          "images/gifford-chanterelle-1.jpg",
-          "images/gifford-chanterelle-2.jpg",
-          "images/gifford-chanterelle-3.jpg"
+          "images/gifford-chanterelle-1.webp",
+          "images/gifford-chanterelle-2.webp",
+          "images/gifford-chanterelle-3.webp"
         ],
         notes: "We were specifically hoping to find chanterelles and ended up finding several promising specimens while exploring the forest floor."
       },
       {
         mushroomId: "pigs-ear",
         images: [
-          "images/gifford-pigsear-1.jpg",
-          "images/gifford-pigsear-2.jpg",
-          "images/gifford-pigsear-3.jpg"
+          "images/gifford-pigsear-1.webp",
+          "images/gifford-pigsear-2.webp",
+          "images/gifford-pigsear-3.webp"
         ],
         notes: "We were specifically hoping to find chanterelles and ended up finding several promising specimens while exploring the forest floor."
       },
@@ -41,7 +41,7 @@ const adventures = [
       {
         mushroomId: "lobster-mushroom",
         images: [
-          "images/lobster-mushroom.jpg"
+          "images/lobster-mushroom.webp"
         ],
         notes: "We found a striking lobster mushroom while exploring the forest."
       }
@@ -64,31 +64,31 @@ const adventures = [
       {
         mushroomId: "chanterelle",
         images: [
-          "images/gifford-chanterelle-1.jpg",
-          "images/gifford-chanterelle-2.jpg"
+          "images/gifford-chanterelle-1.webp",
+          "images/gifford-chanterelle-2.webp"
         ],
         notes: "We were specifically hoping to find chanterelles and ended up finding several promising specimens while exploring the forest floor."
       },
       {
         mushroomId: "lobster-mushroom",
         images: [
-          "images/high-lobster-2.jpg"
+          "images/high-lobster-2.webp"
         ],
         notes: "We found a striking lobster mushroom while exploring the forest."
       },
       {
         mushroomId: "cauliflower-mushroom",
         images: [
-          "images/gifford-cauliflower-1.jpg",
-          "images/high-cauliflower-1.jpg",
-          "images/high-cauliflower-2.jpg"
+          "images/gifford-cauliflower-1.webp",
+          "images/high-cauliflower-1.webp",
+          "images/high-cauliflower-2.webp"
         ],
         notes: "We found a unique cauliflower mushroom while exploring the forest."
       }
     ],
     notes: "A short family outing through mixed forest. We kept an eye out for chanterelles and other fall fungi.",
     emoji: "🫈",
-    image: "images/cauliflower-mushroom.jpg",
+    image: "images/cauliflower-mushroom.webp",
     // PUBLIC/general map position only. Do not put exact coordinates here.
     publicMap: [46.4, -121.9]
   },
@@ -105,21 +105,21 @@ const adventures = [
       {
         mushroomId: "chanterelle",
         images: [
-          "images/gifford-chanterelle-1.jpg",
-          "images/gifford-chanterelle-2.jpg"
+          "images/gifford-chanterelle-1.webp",
+          "images/gifford-chanterelle-2.webp"
         ],
         notes: "We were specifically hoping to find chanterelles and ended up finding several promising specimens while exploring the forest floor."
       },
       {
         mushroomId: "bleeding-tooth",
         images: [
-          "images/bleeding-tooth.jpg"
+          "images/bleeding-tooth.webp"
         ],
         notes: "We found a striking bleeding tooth mushroom while exploring the forest."
       }
     ],
     emoji: "🌲",
-    image: "images/bleeding-tooth.jpg",
+    image: "images/bleeding-tooth.webp",
     publicMap: [47.5, -122.7]
   }
 ];
@@ -145,7 +145,7 @@ const mushrooms = [
     name: "Bleeding Tooth",
     scientific: "Hydnellum peckii",
     emoji: "🩸",
-    images: ["images/bleeding-tooth.jpg"],
+    images: ["images/bleeding-tooth.webp"],
     categories: ["Tooth Fungi"],
     seasons: ["Summer", "Fall"],
     habitat: "Found on the ground in forest environments, often associated with coniferous woodland.",
@@ -160,9 +160,9 @@ const mushrooms = [
     name: "Cauliflower Mushroom",
     scientific: "Sparassis",
     emoji: "🥦",
-    images: ["images/cauliflower-mushroom.jpg",
-              "images/high-cauliflower-1.jpg",
-              "images/high-cauliflower-2.jpg"
+    images: ["images/cauliflower-mushroom.webp",
+              "images/high-cauliflower-1.webp",
+              "images/high-cauliflower-2.webp"
     ],
     categories: ["Other"],
     seasons: ["Summer", "Fall"],
@@ -178,11 +178,11 @@ const mushrooms = [
     name: "Chanterelle",
     scientific: "Cantharellus",
     emoji: "🍄",
-    images: ["images/chanterelle.jpg",
-              "images/chanterelle-2.jpg",
-              "images/gifford-chanterelle-1.jpg",
-              "images/gifford-chanterelle-2.jpg",
-              "images/gifford-chanterelle-3.jpg"
+    images: ["images/chanterelle.webp",
+              "images/chanterelle-2.webp",
+              "images/gifford-chanterelle-1.webp",
+              "images/gifford-chanterelle-2.webp",
+              "images/gifford-chanterelle-3.webp"
             ],
     categories: ["Edible"],
     seasons: ["Summer", "Fall"],
@@ -198,8 +198,8 @@ const mushrooms = [
     name: "Lobster Mushroom",
     scientific: "Hypomyces lactifluorum",
     emoji: "🦞",
-    images: ["images/lobster-mushroom.jpg",
-              "images/high-lobster-2.jpg"
+    images: ["images/lobster-mushroom.webp",
+              "images/high-lobster-2.webp"
             ],
     categories: ["Edible"],
     seasons: ["Summer", "Fall"],
@@ -215,9 +215,9 @@ const mushrooms = [
     name: "Pigs Ear",
     scientific: "Gomphus clavatus",
     emoji: "🍄",
-    images: ["images/gifford-pigsear-1.jpg",
-              "images/gifford-pigsear-2.jpg",
-              "images/gifford-pigsear-3.jpg"
+    images: ["images/gifford-pigsear-1.webp",
+              "images/gifford-pigsear-2.webp",
+              "images/gifford-pigsear-3.webp"
             ],
     categories: ["Edible"],
     seasons: ["Summer", "Fall"],
@@ -233,7 +233,7 @@ const mushrooms = [
     name: "Porcini",
     scientific: "Boletus",
     emoji: "🍄",
-    images: ["images/porcini.jpg"],
+    images: ["images/porcini.webp"],
     categories: ["Boletes", "Edible"],
     seasons: ["Summer", "Fall"],
     habitat: "Found on the ground in forest environments, often associated with conifer and mixed forests.",
@@ -253,7 +253,7 @@ const recipes = [
     cookTime: "20 minutes",
     difficulty: "Easy",
     servings: 4,
-    image: "images/recipes/chanterelle-butter-pasta.jpg",
+    image: "images/recipes/chanterelle-butter-pasta.webp",
 
     ingredients: [
       "8 oz fresh chanterelles",
@@ -282,7 +282,7 @@ const recipes = [
     cookTime: "30 minutes",
     difficulty: "Easy",
     servings: 4,
-    image: "images/recipes/creamy-chanterelle-soup.jpg",
+    image: "images/recipes/creamy-chanterelle-soup.webp",
 
     ingredients: [
       "8 oz fresh chanterelles",
@@ -313,7 +313,7 @@ const recipes = [
     cookTime: "15 minutes",
     difficulty: "Easy",
     servings: 3,
-    image: "images/recipes/lobster-mushroom-skillet.jpg",
+    image: "images/recipes/lobster-mushroom-skillet.webp",
 
     ingredients: [
       "8 oz lobster mushrooms",
