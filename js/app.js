@@ -34,7 +34,7 @@ const adventures = [
       {
         mushroomId: "bears-head",
         images: [
-          "images/bears-head.jpg"
+          "images/bears-head.webp"
         ],
         notes: "Very Beautiful bears head growing on the side of a downed log."
       },
@@ -48,7 +48,7 @@ const adventures = [
     ],
     notes: "We were specifically hoping to find chanterelles and ended up finding several promising specimens while exploring the forest floor.",
     emoji: "🍄",
-    image: "images/bears-head.jpg",
+    image: "images/bears-head.webp",
     // PUBLIC/general map position only. Do not put exact coordinates here.
     publicMap: [46.7, -121.85]
   },
@@ -130,7 +130,7 @@ const mushrooms = [
     name: "Bear's Head",
     scientific: "Hericium americanum",
     emoji: "🦁",
-    images: ["images/bears-head.jpg"],
+    images: ["images/bears-head.webp"],
     categories: ["Tooth Fungi"],
     seasons: ["Summer", "Fall"],
     habitat: "Usually found on hardwood trees, logs, or stumps in mature forest.",
