@@ -1267,12 +1267,48 @@ function initMap() {
   }).addTo(map);
 
   adventures.forEach(a => {
-    L.marker(a.publicMap)
+    const marker = L.marker(a.publicMap)
       .addTo(map)
       .bindPopup(`
-        <strong>${escapeHtml(a.title)}</strong><br>
-        ${escapeHtml(a.area)}
+        <div class="map-popup">
+
+          <strong>${escapeHtml(a.title)}</strong>
+
+          <span>
+            ${escapeHtml(a.area)}
+          </span>
+
+          <button
+            class="map-adventure-button"
+            data-adventure="${escapeHtml(a.id)}">
+            View Adventure →
+          </button>
+
+        </div>
       `);
+
+    marker.on("popupopen", () => {
+
+      const button = document.querySelector(
+        `.map-adventure-button[data-adventure="${a.id}"]`
+      );
+
+      if (!button) return;
+
+      button.addEventListener("click", event => {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        map.closePopup();
+
+        setTimeout(() => {
+          openAdventureModal(a.id);
+        }, 50);
+
+      });
+
+    });
   });
 
   // Give Leaflet a moment to calculate the container dimensions.

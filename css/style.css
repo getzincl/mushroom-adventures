@@ -1340,6 +1340,44 @@ footer{background:#19271f;color:#aab5ad;padding:25px 0}
   padding-right: 6px;
 }
 
+/* =========================
+   MAP POPUPS
+   ========================= */
+
+.map-popup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 180px;
+}
+
+.map-popup strong {
+  color: var(--forest);
+  font-size: .9rem;
+}
+
+.map-popup span {
+  color: var(--muted);
+  font-size: .78rem;
+}
+
+.map-adventure-button {
+  margin-top: 6px;
+  border: 0;
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: var(--forest);
+  color: white;
+  font-family: "DM Sans", sans-serif;
+  font-size: .75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.map-adventure-button:hover {
+  background: var(--moss);
+}
+
 @media(max-width:800px){
  nav{display:none}.hero-inner{grid-template-columns:1fr;min-height:650px}.hero-art{height:270px}
  .card-grid{grid-template-columns:1fr}.mushroom-grid{grid-template-columns:repeat(2,1fr)}
