@@ -1260,6 +1260,86 @@ footer{background:#19271f;color:#aab5ad;padding:25px 0}
   transform: translateX(4px);
 }
 
+/* =========================
+   MUSHROOM RECIPES
+   ========================= */
+
+.mushroom-recipes-section {
+  margin-top: 34px;
+}
+
+.mushroom-recipe-list {
+  display: grid;
+  gap: 12px;
+}
+
+.mushroom-recipe-card {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 90px 1fr auto;
+  align-items: center;
+  gap: 14px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease;
+}
+
+.mushroom-recipe-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--moss);
+  box-shadow: var(--shadow);
+}
+
+.mushroom-recipe-image {
+  width: 90px;
+  height: 70px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mushroom-recipe-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mushroom-recipe-image span {
+  font-size: 2rem;
+}
+
+.mushroom-recipe-info {
+  min-width: 0;
+}
+
+.mushroom-recipe-info strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--ink);
+}
+
+.mushroom-recipe-info span {
+  color: var(--muted);
+  font-size: .78rem;
+}
+
+.mushroom-recipe-arrow {
+  color: var(--moss);
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding-right: 6px;
+}
+
 @media(max-width:800px){
  nav{display:none}.hero-inner{grid-template-columns:1fr;min-height:650px}.hero-art{height:270px}
  .card-grid{grid-template-columns:1fr}.mushroom-grid{grid-template-columns:repeat(2,1fr)}

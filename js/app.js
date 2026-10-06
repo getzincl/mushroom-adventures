@@ -1073,7 +1073,57 @@ function openMushroomModal(id) {
             `).join("")}
         </div>
 
-      </div>      
+      </div>
+      
+      <div class="mushroom-recipes-section">
+
+        <p class="eyebrow">FROM THE KITCHEN</p>
+
+        <h3>Recipes With This Mushroom</h3>
+
+        <div class="mushroom-recipe-list">
+
+          ${recipes
+            .filter(recipe => recipe.mushroomId === mushroom.id)
+            .map(recipe => `
+              <button
+                class="mushroom-recipe-card"
+                data-recipe="${escapeHtml(recipe.id)}">
+
+                <div class="mushroom-recipe-image">
+
+                  ${recipe.image
+                    ? `<img
+                        src="${escapeHtml(recipe.image)}"
+                        alt="${escapeHtml(recipe.name)}">`
+                    : `<span>🍳</span>`
+                  }
+
+                </div>
+
+                <div class="mushroom-recipe-info">
+
+                  <strong>
+                    ${escapeHtml(recipe.name)}
+                  </strong>
+
+                  <span>
+                    ⏱ ${escapeHtml(recipe.cookTime)}
+                    &nbsp;•&nbsp;
+                    👨‍🍳 ${escapeHtml(recipe.difficulty)}
+                  </span>
+
+                </div>
+
+                <span class="mushroom-recipe-arrow">→</span>
+
+              </button>
+            `)
+            .join("")}
+
+        </div>
+
+      </div>
 
     </div>
   `;
@@ -1091,7 +1141,26 @@ function openMushroomModal(id) {
         openAdventureModal(adventureId);
       },20);
     });
-  });  
+  });
+
+  body.querySelectorAll(".mushroom-recipe-card").forEach(button => {
+
+    button.addEventListener("click", event => {
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      const recipeId = button.dataset.recipe;
+
+      closeMushroomModal();
+
+      setTimeout(() => {
+        openRecipeModal(recipeId);
+      }, 50);
+
+    });
+
+  });
 
   modal.classList.remove("hidden");
   document.body.classList.add("modal-open");
