@@ -229,17 +229,19 @@ h2{font-size:clamp(1.8rem,4vw,2.7rem)}
 
 .mushroom {
   display: flex;
-  gap: 17px;
-  padding: 21px;
-  background: white;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 20px;
+  background: var(--paper);
   border: 1px solid var(--line);
-  border-radius: 12px;
-  transition: transform .2s ease, box-shadow .2s ease;
+  border-radius: 16px;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 
 .mushroom:hover {
   transform: translateY(-3px);
-  box-shadow: var(--shadow);
+  box-shadow: 0 14px 35px rgba(35, 48, 41, .10);
+  border-color: #cfc8b8;
 }
 
 .mushroom-icon {
@@ -262,10 +264,6 @@ h2{font-size:clamp(1.8rem,4vw,2.7rem)}
   font-family: "Libre Baskerville", serif;
   font-size: 1.05rem;
   line-height: 1.3;
-}
-
-.mushroom {
-  align-items: flex-start;
 }
 
 .mushroom-image {
