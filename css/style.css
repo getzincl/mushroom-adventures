@@ -1236,9 +1236,11 @@ footer{background:#19271f;color:#aab5ad;padding:25px 0}
   list-style: none;
   padding: 0;
   margin: 0;
+  counter-reset: recipe-step;
 }
 
 .recipe-instructions li {
+  counter-increment: recipe-step;
   margin-bottom: 12px;
 }
 
@@ -1246,7 +1248,6 @@ footer{background:#19271f;color:#aab5ad;padding:25px 0}
   list-style: none;
   padding: 0;
   margin: 0;
-  counter-reset: recipe-step;
 }
 
 .recipe-step {
@@ -1255,7 +1256,6 @@ footer{background:#19271f;color:#aab5ad;padding:25px 0}
   gap: 14px;
   padding: 12px;
   border-radius: 10px;
-  counter-increment: recipe-step;
   transition: background .2s ease;
 }
 
