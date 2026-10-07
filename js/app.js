@@ -56,7 +56,7 @@ const adventures = [
     id: "HighBridgeCreek-2026",
     title: "High Bridge Creek fun",
     date: "September 2026",
-    area: "Gifford Pinchot National Forest south of Randle",
+    area: "Gifford Pinchot National Forest",
     summary: "a short outing through mixed forest with a few promising finds",
     weather: "Cool forest morning",
     foundBy: "Family",
