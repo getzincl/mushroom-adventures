@@ -23,10 +23,31 @@ h1,h2{font-family:"Libre Baskerville",serif;font-weight:700;line-height:1.18;mar
 h1{font-size:clamp(2.7rem,6vw,5.1rem);color:var(--forest)}
 h1 em{color:#8c603d}
 h2{font-size:clamp(1.8rem,4vw,2.7rem)}
-.hero-copy{font-size:1.12rem;color:var(--muted);max-width:590px;margin-bottom:28px}
+.hero-copy {
+  font-size: 1.12rem;
+  color: var(--muted);
+  max-width: 590px;
+  margin: 0 0 28px;
+  line-height: 1.7;
+}
+.hero-copy-wrap {
+  max-width: 650px;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 .button{display:inline-block;border:0;border-radius:8px;background:var(--forest);color:white;padding:11px 17px;font:600 .92rem "DM Sans";text-decoration:none;cursor:pointer}
 .button:hover{filter:brightness(1.1)}
-.button.secondary{background:#e6e1d6;color:var(--ink)}
+.button.secondary {
+  background: #e6e1d6;
+  color: var(--ink);
+}
+.button.secondary:hover {
+  background: #ddd7ca;
+  filter: none;
+}
 .hero-art{height:370px;position:relative}
 .hero-mushroom{
   width:240px;
@@ -1426,12 +1447,25 @@ footer{background:#19271f;color:#aab5ad;padding:25px 0}
  nav{display:none}.hero-inner{grid-template-columns:1fr;min-height:650px}.hero-art{height:270px}
  .card-grid{grid-template-columns:1fr}.mushroom-grid{grid-template-columns:repeat(2,1fr)}
  .section-heading{align-items:stretch;flex-direction:column}.search{width:100%}
+ .hero-actions {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.hero-actions .button {
+  width: auto;
+}
 }
 @media(max-width:500px){
  .container{width:min(100% - 24px,1120px)}.section{padding:58px 0}
  .mushroom-grid{grid-template-columns:1fr}.stat-grid strong{font-size:1.35rem}.stat-grid span{font-size:.62rem}
  .password-row{flex-direction:column}.password-row .button{width:100%}
  .footer-inner{flex-direction:column;gap:6px}
+ .hero-actions {
+  align-items: stretch;
+}
+.hero-actions .button {
+  text-align: center;
+}
 }
 
 @media(max-width:500px){

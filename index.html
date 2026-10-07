@@ -8,7 +8,7 @@
   <meta name="googlebot-news" content="noindex, nofollow, noarchive, noimageindex">
   <meta name="description" content="A personal journal of mushroom adventures in the Pacific Northwest.">
   <title>Getzin Family Mushroom Adventures</title>
-  <link rel="icon" type="images/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -17,42 +17,81 @@
 <body>
 <header class="site-header">
   <div class="container nav-wrap">
-    <a class="brand" href="index.html"><span>🍄</span> Getzin Family Mushroom Adventures</a>
-    <nav>
-      <a href="#adventures">Adventures</a>
-      <a href="#mushrooms">Mushrooms</a>
-      <a href="#recipes">Recipes</a>
-      <a href="#map">Map</a>
-      <a href="#private">🔒 Private</a>
-    </nav>
+    <a class="brand" href="index.html" aria-label="Getzin Family Mushroom Adventures home">
+      <span>🍄</span>
+      Getzin Family Mushroom Adventures
+    </a>
+
+<nav aria-label="Main navigation">
+  <a href="#adventures">Adventures</a>
+  <a href="#mushrooms">Mushrooms</a>
+  <a href="#recipes">Recipes</a>
+  <a href="#map">Map</a>
+</nav>
+
   </div>
 </header>
 
 <main>
   <section class="hero">
     <div class="container hero-inner">
-      <div>
-        <p class="eyebrow">PACIFIC NORTHWEST • FIELD JOURNAL</p>
-        <h1>Out in the woods,<br><em>looking for fungi.</em></h1>
-        <p class="hero-copy">A family field journal of mushroom hunts, forest discoveries, photographs, field notes, and recipes from the Pacific Northwest.
-</p>
-        <a class="button" href="#adventures">Explore adventures ↓</a>
-      </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="forest-line"></div>
-        <img class="hero-mushroom" src="favicon.png" alt="">
-        <div class="fern">🌿</div>
-      </div>
+      <div class="hero-copy-wrap">
+        <p class="eyebrow">PACIFIC NORTHWEST • FAMILY FIELD JOURNAL</p>
+
+  ```
+    <h1>
+      Out in the woods,<br>
+      <em>looking for fungi.</em>
+    </h1>
+
+    <p class="hero-copy">
+      A family field journal of mushroom hunts, forest discoveries,
+      photographs, field notes, and recipes from the Pacific Northwest.
+    </p>
+
+    <div class="hero-actions">
+      <a class="button" href="#adventures">Explore adventures ↓</a>
+      <a class="button secondary" href="#mushrooms">Browse the field guide</a>
+    </div>
+  </div>
+
+  <div class="hero-art" aria-hidden="true">
+    <div class="forest-line"></div>
+
+    <img
+      class="hero-mushroom"
+      src="favicon.png"
+      alt=""
+    >
+
+    <div class="fern">🌿</div>
+  </div>
+  ```
+
     </div>
   </section>
 
-  <section class="stats">
-    <div class="container stat-grid">
-      <div><strong id="adventureCount">0</strong><span>Adventures</span></div>
-      <div><strong id="mushroomCount">0</strong><span>Mushrooms logged</span></div>
-      <div><strong id="yearCount">2026</strong><span>Current season</span></div>
+<section class="stats">
+  <div class="container stat-grid">
+    <div>
+      <strong id="adventureCount">0</strong>
+      <span>Adventures</span>
     </div>
-  </section>
+
+```
+<div>
+  <strong id="mushroomCount">0</strong>
+  <span>Mushrooms logged</span>
+</div>
+
+<div>
+  <strong id="yearCount">2026</strong>
+  <span>Season</span>
+</div>
+```
+
+  </div>
+</section>
 
   <section id="adventures" class="section">
     <div class="container">
