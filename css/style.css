@@ -102,11 +102,11 @@ h2{font-size:clamp(1.8rem,4vw,2.7rem)}
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform .5s ease;
+  transition: transform .35s ease;
 }
 
-.adventure-card:hover .card-image img {
-  transform: scale(1.05);
+.card:hover .card-image img {
+  transform: scale(1.025);
 }
 
 .photo-date {
