@@ -90,8 +90,7 @@ const adventures = [
     emoji: "🫈",
     image: "images/cauliflower-mushroom.webp",
     // PUBLIC/general map position only. Do not put exact coordinates here.
-    //publicMap: [46.4, -121.9]
-    publicMap: [46.7, -121.85]
+    publicMap: [46.4, -121.9]
   },
   {
     id: "PortOrchard-2025",
