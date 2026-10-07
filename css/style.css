@@ -484,26 +484,75 @@ body.modal-open {
 }
 
 .mushroom-filters {
+
   display: flex;
+
   flex-wrap: wrap;
-  gap: 9px;
-  margin: 25px 0 28px;
+
+  gap: 12px;
+
+  margin: 25px 0 18px;
+
+}
+
+.filter-group {
+
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+}
+
+.filter-group + .filter-group {
+
+  margin-top: 0;
+
+}
+
+.filter-label {
+
+  font-size: .7rem;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: .08em;
+
+  color: var(--muted);
+
+  margin-right: 3px;
+
 }
 
 .filter-button {
+
   border: 1px solid var(--line);
-  background: white;
+
+  background: var(--paper);
+
   color: var(--muted);
+
   padding: 8px 15px;
+
   border-radius: 99px;
+
   font: 600 .78rem "DM Sans";
+
   cursor: pointer;
-  transition: all .2s ease;
+
+  transition: background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+
 }
 
 .filter-button:hover {
-  border-color: var(--forest);
+  border-color: var(--moss);
   color: var(--forest);
+  transform: translateY(-1px);
 }
 
 .filter-button.active {
@@ -519,29 +568,9 @@ body.modal-open {
   margin: 0 4px;
 }
 
-.filter-group {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.filter-group + .filter-group {
-  margin-top: 12px;
-}
-
-.filter-label {
-  font-size: .72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  color: var(--muted);
-  margin-right: 4px;
-}
-
 .filter-count {
   color: var(--muted);
-  font-size: .8rem;
+  font-size: .78rem;
   margin: 0 0 22px;
 }
 
