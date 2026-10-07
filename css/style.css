@@ -270,7 +270,7 @@ h2{font-size:clamp(1.8rem,4vw,2.7rem)}
   flex: 0 0 110px;
   width: 110px;
   height: 110px;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
   background: linear-gradient(135deg, #d8d7c0, #a7b28e);
   display: grid;
@@ -283,6 +283,11 @@ h2{font-size:clamp(1.8rem,4vw,2.7rem)}
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform .35s ease;
+}
+
+.mushroom:hover .mushroom-image img {
+  transform: scale(1.035);
 }
 
 .scientific-name {
