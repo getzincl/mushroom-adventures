@@ -6,7 +6,7 @@
 const adventures = [
   {
     id: "gifford-2026",
-    title: "Gifford Pinchot Adventure",
+    title: "Teeley Creek Adventure",
     date: "September 2026",
     area: "Gifford Pinchot National Forest",
     summary: "A day in the forest looking for fall fungi and exploring new ground.",
