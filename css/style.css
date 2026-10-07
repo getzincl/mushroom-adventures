@@ -497,69 +497,41 @@ body.modal-open {
 }
 
 .mushroom-filters {
-
   display: flex;
-
   flex-wrap: wrap;
-
   gap: 12px;
-
   margin: 25px 0 18px;
-
 }
 
 .filter-group {
-
   display: flex;
-
   align-items: center;
-
   flex-wrap: wrap;
-
   gap: 8px;
-
 }
 
 .filter-group + .filter-group {
-
   margin-top: 0;
-
 }
 
 .filter-label {
-
   font-size: .7rem;
-
   font-weight: 700;
-
   text-transform: uppercase;
-
   letter-spacing: .08em;
-
   color: var(--muted);
-
   margin-right: 3px;
-
 }
 
 .filter-button {
-
   border: 1px solid var(--line);
-
   background: var(--paper);
-
   color: var(--muted);
-
   padding: 8px 15px;
-
   border-radius: 99px;
-
   font: 600 .78rem "DM Sans";
-
   cursor: pointer;
-
   transition: background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
-
 }
 
 .filter-button:hover {
