@@ -126,6 +126,20 @@ const adventures = [
 
 const mushrooms = [
   {
+    id: "matsutake",
+    name: "Matsutake",
+    scientific: "Tricholoma matsutake",
+    emoji: "🍄",
+    images: ["images/matsutake.webp"],
+    categories: ["Mycorrhizal", "Edible", "Gilled"],
+    seasons: ["Summer", "Fall"],
+    habitat: "Grows on the ground in well-drained, often sandy soils beneath conifer forests. In the Pacific Northwest it is associated with shore and lodgepole pine, Douglas-fir, hemlock, and other conifers, with coastal dunes and drier Cascade forests being notable habitats.",
+    identification: "A large, firm white mushroom with brownish fibers or stains, white gills, and a thick, cottony ring around the stem. Its distinctive spicy, cinnamon-like aroma is a classic characteristic, but identification should also rely on its firm flesh, veil, stem, and other structural features because some look-alikes can have similar odors.",
+    note: "One of the Pacific Northwest's most prized wild mushrooms, Matsutake is highly valued for its firm texture and powerful spicy aroma. It typically fruits in fall and can be surprisingly difficult to spot because young mushrooms often push up beneath the forest duff.",
+    observations: "Look for subtle bumps or cracks in the moss and needle duff where mushrooms are emerging rather than searching only for exposed caps. Candystick (Allotropa virgata) can also be an interesting indicator of Matsutake habitat because it is associated with Matsutake's underground mycelial network."
+  },
+  
+  {
     id: "bears-head",
     name: "Bear's Head",
     scientific: "Hericium americanum",
