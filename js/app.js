@@ -122,6 +122,28 @@ const adventures = [
     image: "images/bleeding-tooth.webp",
     publicMap: [47.5, -122.7]
   }
+  {id: "HorseCamp-2025",
+    title: "Horse Camp: Lewis River",
+    date: "October 2025",
+    area: "Horse Camp: Lewis River",
+    summary: "A long drive but high probability of matsutakes.",
+    weather: "Cloudy dry day, no rain for a few days",
+    foundBy: "Bamba",
+    notes: "First time visit with Tony Bamba, many different spots all within range of general area.",
+    finds: [
+      {
+        mushroomId: "matsutake",
+        images: [
+          "images/horsecamp-matsutake-1webp",
+          "images/horsecamp-matsutake-2.webp"
+        ],
+        notes: "rewarded with many many matsutake mushrooms.",
+      }
+    ],
+    emoji: "🇯🇵",
+    image: "images/matsutake.webp",
+    publicMap: [46.2, -121.9]
+  }
 ];
 
 const mushrooms = [
