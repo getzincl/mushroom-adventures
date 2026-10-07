@@ -1236,11 +1236,9 @@ footer{background:#19271f;color:#aab5ad;padding:25px 0}
   list-style: none;
   padding: 0;
   margin: 0;
-  counter-reset: recipe-step;
 }
 
 .recipe-instructions li {
-  counter-increment: recipe-step;
   margin-bottom: 12px;
 }
 
