@@ -721,7 +721,7 @@ function closeAdventureModal() {
 function renderMushrooms(categoryFilter = "All", seasonFilter = null) {
   const grid = document.getElementById("mushroomGrid");
 
-  let list = mushrooms;
+  let list = [...mushrooms];
 
   // Filter by category
   if (categoryFilter !== "All") {
@@ -736,6 +736,11 @@ function renderMushrooms(categoryFilter = "All", seasonFilter = null) {
       m.seasons.includes(seasonFilter)
     );
   }
+
+  // Sort alphabetically by mushroom name
+  list.sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
 
   if (!list.length) {
     grid.innerHTML =
