@@ -1348,34 +1348,69 @@ footer{background:#19271f;color:#aab5ad;padding:25px 0}
   display: flex;
   flex-direction: column;
   gap: 5px;
-  min-width: 180px;
+  min-width: 220px;
 }
 
-.map-popup strong {
+.map-popup-location {
   color: var(--forest);
   font-size: .9rem;
 }
 
-.map-popup span {
+.map-popup-count {
   color: var(--muted);
-  font-size: .78rem;
+  font-size: .75rem;
+  margin-bottom: 6px;
+}
+
+.map-adventure-list {
+  display: grid;
+  gap: 6px;
 }
 
 .map-adventure-button {
-  margin-top: 6px;
-  border: 0;
-  padding: 7px 10px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 8px;
+
+  border: 1px solid var(--line);
+  padding: 8px 9px;
   border-radius: 8px;
-  background: var(--forest);
-  color: white;
+
+  background: var(--paper);
+  color: var(--ink);
+
   font-family: "DM Sans", sans-serif;
-  font-size: .75rem;
-  font-weight: 600;
+  text-align: left;
+
   cursor: pointer;
+
+  transition:
+    background .2s ease,
+    border-color .2s ease;
 }
 
 .map-adventure-button:hover {
-  background: var(--moss);
+  background: var(--cream);
+  border-color: var(--moss);
+}
+
+.map-adventure-button strong {
+  color: var(--forest);
+  font-size: .75rem;
+  white-space: nowrap;
+}
+
+.map-adventure-button span {
+  color: var(--muted);
+  font-size: .75rem;
+}
+
+.map-adventure-button .map-adventure-arrow {
+  color: var(--moss);
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 @media(max-width:800px){

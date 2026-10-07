@@ -1266,50 +1266,108 @@ function initMap() {
     attribution: "&copy; OpenStreetMap contributors"
   }).addTo(map);
 
-  adventures.forEach(a => {
-    const marker = L.marker(a.publicMap)
-      .addTo(map)
-      .bindPopup(`
-        <div class="map-popup">
+  const mapLocations = {};
 
-          <strong>${escapeHtml(a.title)}</strong>
+  adventures.forEach(adventure => {
+
+    const key = adventure.publicMap.join(",");
+
+    if (!mapLocations[key]) {
+      mapLocations[key] = {
+        coordinates: adventure.publicMap,
+        area: adventure.area,
+        adventures: []
+      };
+    }
+
+    mapLocations[key].adventures.push(adventure);
+  });
+
+
+  Object.values(mapLocations).forEach(location => {
+
+    const marker = L.marker(location.coordinates)
+      .addTo(map);
+
+
+    const adventureList = location.adventures
+      .slice()
+      .sort((a, b) =>
+        b.date.localeCompare(a.date)
+      )
+      .map(adventure => `
+        <button
+          class="map-adventure-button"
+          data-adventure="${escapeHtml(adventure.id)}">
+
+          <strong>
+            ${escapeHtml(adventure.date)}
+          </strong>
 
           <span>
-            ${escapeHtml(a.area)}
+            ${escapeHtml(adventure.title)}
           </span>
 
-          <button
-            class="map-adventure-button"
-            data-adventure="${escapeHtml(a.id)}">
-            View Adventure →
-          </button>
+          <span class="map-adventure-arrow">
+            →
+          </span>
 
+        </button>
+      `)
+      .join("");
+
+
+    marker.bindPopup(`
+      <div class="map-popup">
+
+        <strong class="map-popup-location">
+          ${escapeHtml(location.area)}
+        </strong>
+
+        <span class="map-popup-count">
+          ${location.adventures.length}
+          ${location.adventures.length === 1
+            ? "adventure"
+            : "adventures"}
+        </span>
+
+        <div class="map-adventure-list">
+          ${adventureList}
         </div>
-      `);
 
-    marker.on("popupopen", () => {
+      </div>
+    `);
 
-      const button = document.querySelector(
-        `.map-adventure-button[data-adventure="${a.id}"]`
-      );
 
-      if (!button) return;
+  marker.on("popupopen", () => {
+
+    const buttons = document.querySelectorAll(
+      ".map-adventure-button"
+    );
+
+    buttons.forEach(button => {
 
       button.addEventListener("click", event => {
 
         event.preventDefault();
         event.stopPropagation();
 
+        const adventureId =
+          button.dataset.adventure;
+
         map.closePopup();
 
         setTimeout(() => {
-          openAdventureModal(a.id);
+          openAdventureModal(adventureId);
         }, 50);
 
       });
 
     });
+
   });
+
+});
 
   // Give Leaflet a moment to calculate the container dimensions.
   setTimeout(() => {
