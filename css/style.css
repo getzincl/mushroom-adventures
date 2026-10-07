@@ -200,17 +200,18 @@ h2{font-size:clamp(1.8rem,4vw,2.7rem)}
 .recipe-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 7px;
   margin-top: 16px;
 }
 
 .recipe-meta span {
   padding: 5px 9px;
-  border-radius: 999px;
+  border-radius: 99px;
   background: #edf0e7;
   color: var(--forest);
   font-size: .72rem;
   font-weight: 600;
+  line-height: 1.2;
 }
 
 .tags {
