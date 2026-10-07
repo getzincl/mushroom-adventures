@@ -121,7 +121,7 @@ const adventures = [
     emoji: "🌲",
     image: "images/bleeding-tooth.webp",
     publicMap: [47.5, -122.7]
-  }
+  },
   {id: "HorseCamp-2025",
     title: "Horse Camp: Lewis River",
     date: "October 2025",
