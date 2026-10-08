@@ -5,32 +5,14 @@
 
 const adventures = [
   {
-    id: "gifford-2026",
+    id: "ashford-2023",
     title: "Teeley Creek Adventure",
-    date: "September 2026",
-    area: "Gifford Pinchot National Forest",
+    date: "October 2023",
+    area: "Ashford",
     summary: "A day in the forest looking for fall fungi and exploring new ground.",
     weather: "cool and damp after recent rain",
     foundBy: "Family",
     finds: [
-      {
-        mushroomId: "chanterelle",
-        images: [
-          "images/gifford-chanterelle-1.webp",
-          "images/gifford-chanterelle-2.webp",
-          "images/gifford-chanterelle-3.webp"
-        ],
-        notes: "We were specifically hoping to find chanterelles and ended up finding several promising specimens while exploring the forest floor."
-      },
-      {
-        mushroomId: "pigs-ear",
-        images: [
-          "images/gifford-pigsear-1.webp",
-          "images/gifford-pigsear-2.webp",
-          "images/gifford-pigsear-3.webp"
-        ],
-        notes: "We were specifically hoping to find chanterelles and ended up finding several promising specimens while exploring the forest floor."
-      },
       {
         mushroomId: "bears-head",
         images: [
@@ -51,6 +33,47 @@ const adventures = [
     image: "images/bears-head.webp",
     // PUBLIC/general map position only. Do not put exact coordinates here.
     publicMap: [46.7, -121.85]
+  },
+  {
+    id: "ashford-2026",
+    title: "Mesatchee Creek Adventure",
+    date: "October 2026",
+    area: "Ashford",
+    summary: "Going out for an afterwork mushroom hunt with the two older kiddos",
+    weather: "cool and damp a few days after recent rain",
+    foundBy: "Family",
+    finds: [
+      {
+        mushroomId: "chanterelle",
+        images: [
+          "images/gifford-chanterelle-1.webp",
+          "images/gifford-chanterelle-2.webp",
+          "images/gifford-chanterelle-3.webp"
+        ],
+        notes: "Our goal was to find golden chanterelles where this area is prominent and we were pleased to come across several during our outing."
+      },
+      {
+        mushroomId: "pigs-ear",
+        images: [
+          "images/gifford-pigsear-1.webp",
+          "images/gifford-pigsear-2.webp",
+          "images/gifford-pigsear-3.webp"
+        ],
+        notes: "We were specifically hoping to find chanterelles and ended up finding the pigs ear mushrooms"
+      },
+      {
+        mushroomId: "lobster-mushroom",
+        images: [
+          "images/lobster-mushroom.webp"
+        ],
+        notes: "Multiple lobster mushrooms were found in this area, showcasing their vibrant colors and unique shapes, but didnt take any home."
+      }
+    ],
+    notes: "We were specifically hoping to find chanterelles and ended up finding several promising specimens while exploring the forest floor.",
+    emoji: "🍄",
+    image: "images/gifford-chanterelle-2.webp",
+    // PUBLIC/general map position only. Do not put exact coordinates here.
+    publicMap: [46.7, -121.9]
   },
   {
     id: "HighBridgeCreek-2026",
@@ -122,10 +145,10 @@ const adventures = [
     image: "images/bleeding-tooth.webp",
     publicMap: [47.5, -122.7]
   },
-  {id: "HorseCamp-2025",
+  {id: "Carson-2023",
     title: "Horse Camp: Lewis River",
-    date: "October 2025",
-    area: "Horse Camp: Lewis River",
+    date: "October 2023",
+    area: "Carson",
     summary: "A long drive but high probability of matsutakes.",
     weather: "Cloudy dry day, no rain for a few days",
     foundBy: "Bamba",
@@ -134,15 +157,59 @@ const adventures = [
       {
         mushroomId: "matsutake",
         images: [
-          "images/horsecamp-matsutake-1webp",
-          "images/horsecamp-matsutake-2.webp"
+          "images/carson-matsutake-1webp",
+          "images/carson-matsutake-2.webp"
         ],
         notes: "rewarded with many many matsutake mushrooms.",
       }
     ],
     emoji: "🇯🇵",
-    image: "images/matsutake.webp",
+    image: "images/carson-matsutake-1.webp",
     publicMap: [46.2, -121.9]
+  },
+  {id: "Puyallup-2024",
+    title: "Puyallup Hunt",
+    date: "March 2024",
+    area: "Puyallup",
+    summary: "A local hunt in the Puyallup area for early spring fungi.",
+    weather: "Cloudy dry day, no rain for a few days",
+    foundBy: "Christian and Kekoa",
+    notes: "Went for an afternoon after nap adventure with Kekoa to find oyster mushrooms.",
+    finds: [
+      {
+        mushroomId: "oyster",
+        images: [
+          "images/puyallup-oyster-1.webp",
+          "images/puyallup-oyster-2.webp"
+        ],
+        notes: "Found several oyster mushrooms growing on decaying wood.",
+      }
+    ],
+    emoji: "🦪",
+    image: "images/puyallup-oyster-1.webp",
+    publicMap: [47.2, -122.3]
+  },
+  {id: "Naches-2022",
+    title: "Naches Hunt",
+    date: "October 2022",
+    area: "Naches",
+    summary: "A trip to the Naches region in search of various mushrooms.",
+    weather: "Sunny with mild temperatures",
+    foundBy: "Christian",
+    notes: "Saturday trip to the Naches region in search of morels in an area with previous years burn.",
+    finds: [
+      {
+        mushroomId: "morel",
+        images: [
+          "images/naches-morel-1.webp",
+          "images/naches-morel-2.webp"
+        ],
+        notes: "Found several morel mushrooms in the burned area.",
+      }
+    ],
+    emoji: "🍄",
+    image: "images/naches-morel-1.webp",
+    publicMap: [46.6, 121.4]
   }
 ];
 
@@ -152,7 +219,9 @@ const mushrooms = [
     name: "Matsutake",
     scientific: "Tricholoma matsutake",
     emoji: "🍄",
-    images: ["images/matsutake.webp"],
+    images: ["images/carson-matsutake-1.webp",
+              "images/carson-matsutake-2.webp"
+            ],
     categories: ["Mycorrhizal", "Edible", "Gilled"],
     seasons: ["Summer", "Fall"],
     habitat: "Grows on the ground in well-drained, often sandy soils beneath conifer forests. In the Pacific Northwest it is associated with shore and lodgepole pine, Douglas-fir, hemlock, and other conifers, with coastal dunes and drier Cascade forests being notable habitats.",
@@ -173,6 +242,25 @@ const mushrooms = [
     identification: "A branching or coral-like fungus covered with long, cascading white spines.",
     note: "A distinctive toothed fungus with cascading spines, usually found growing on hardwoods.",
     observations: "Add your own observations here as you encounter this mushroom."
+  },
+
+  {
+    id: "oyster",
+    name: "Oyster",
+    scientific: "Pleurotus ostreatus",
+    emoji: "🦪",
+    images: ["images/puyallup-oyster-1.webp",
+             "images/puyallup-oyster-2.webp",
+             "images/puyallup-oyster-3.webp",
+             "images/puyallup-oyster-4.webp",
+             "images/puyallup-oyster-5.webp"
+            ],
+    categories: ["Edible"],
+    seasons: ["Spring"],
+    habitat: "Usually found on hardwood trees, logs, or stumps in mature forest.",
+    identification: "Fan-shaped or oyster-shaped caps, often growing in clusters on decaying wood.",
+    note: "A popular edible mushroom with a delicate flavor, commonly found on decaying hardwoods.",
+    observations: "Was a good find on decaying wood, not too buggy."
   },
 
   {
@@ -275,6 +363,25 @@ const mushrooms = [
     habitat: "Found on the ground in forest environments, often associated with conifer and mixed forests.",
     identification: "Typically has a thick stem, rounded cap, and pores rather than gills underneath the cap.",
     note: "A group of prized boletes with thick stems and a sponge-like pore surface beneath the cap.",
+    observations: "Add your own observations here as you encounter this mushroom."
+  },
+
+    {
+
+    id: "morel",
+    name: "Morel",
+    scientific: "Morchella",
+    emoji: "🍄",
+    images: ["images/naches-morel-1.webp",
+              "images/naches-morel-2.webp",
+              "images/naches-morel-3.webp",
+              "images/naches-morel-4.webp"
+            ],
+    categories: ["Edible"],
+    seasons: ["Summer", "Fall"],
+    habitat: "Found on the ground in forest environments, often associated with conifer and mixed forests.",
+    identification: "Characterized by a honeycomb-like appearance with a hollow stem and a conical cap.",
+    note: "Highly sought-after edible mushrooms, often found in recently burned forest areas.",
     observations: "Add your own observations here as you encounter this mushroom."
   }
 ];
