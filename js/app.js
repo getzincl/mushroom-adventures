@@ -230,19 +230,18 @@ const mushrooms = [
     observations: "Look for subtle bumps or cracks in the moss and needle duff where mushrooms are emerging rather than searching only for exposed caps. Candystick (Allotropa virgata) can also be an interesting indicator of Matsutake habitat because it is associated with Matsutake's underground mycelial network."
   },
 
-
-{
-  id: "hedgehog-mushroom",
-  name: "Hedgehog Mushroom",
-  scientificName: "Hydnum repandum",
-  emoji: "🦔",
-  categories: ["Edible"],
-  seasons: ["Fall", "Winter"],
-  habitat: "Found on the forest floor in woodland environments, often among moss, leaf litter, and conifer or mixed forest. Frequently grows near trees and may appear in scattered groups or clusters.",
-  identification: "Usually has a cream, pale tan, or light orange cap with an irregular, wavy edge. The underside has distinctive soft, dangling tooth-like spines instead of gills. The stem is typically pale and solid.",
-  note: "A prized edible mushroom with a mild, nutty flavor and firm texture. Its unusual spiny underside makes it especially memorable in a field-guide collection.",
-  observations: "Look beneath the cap for the defining spines, which can help distinguish hedgehog mushrooms from many gilled species. Color and shape can vary, and other tooth fungi exist, so confirm the identification with multiple features and a reliable regional guide before eating."
-}
+  {
+    id: "hedgehog-mushroom",
+    name: "Hedgehog Mushroom",
+    scientificName: "Hydnum repandum",
+    emoji: "🦔",
+    categories: ["Edible"],
+    seasons: ["Fall", "Winter"],
+    habitat: "Found on the forest floor in woodland environments, often among moss, leaf litter, and conifer or mixed forest. Frequently grows near trees and may appear in scattered groups or clusters.",
+    identification: "Usually has a cream, pale tan, or light orange cap with an irregular, wavy edge. The underside has distinctive soft, dangling tooth-like spines instead of gills. The stem is typically pale and solid.",
+    note: "A prized edible mushroom with a mild, nutty flavor and firm texture. Its unusual spiny underside makes it especially memorable in a field-guide collection.",
+    observations: "Look beneath the cap for the defining spines, which can help distinguish hedgehog mushrooms from many gilled species. Color and shape can vary, and other tooth fungi exist, so confirm the identification with multiple features and a reliable regional guide before eating."
+  },
   
   {
     id: "bears-head",
