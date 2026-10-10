@@ -474,7 +474,157 @@ const recipes = [
       "Add the garlic and cook for another minute.",
       "Season with salt and pepper and finish with fresh parsley."
     ]
+  },
+
+  {
+    id: "chamorro-red-rice-chanterelles",
+    name: "Chamorro Red Rice with Chanterelles & Bacon",
+    mushroomId: "chanterelle",
+    description: "Chamorro-style annatto red rice folded with golden chanterelles, smoky bacon, sweet onions, and fresh green onions—a comforting island-inspired dish featuring a Pacific Northwest forest find.",
+    prepTime: "15 minutes",
+    cookTime: "30–40 minutes",
+    difficulty: "Easy",
+    servings: 4,
+    image: "images/recipes/chamorro-red-rice-chanterelles.webp",
+
+    ingredients: [
+      "2 cups Calrose or medium-grain white rice",
+      "Water according to rice cooker instructions",
+      "1–2 teaspoons annatto powder or paste, to taste",
+      "1 teaspoon garlic powder",
+      "1/2 teaspoon onion powder",
+      "1/2–1 teaspoon salt, to taste",
+      "1 tablespoon neutral oil or bacon drippings",
+      "8–12 oz fresh chanterelles, cleaned and sliced",
+      "5–6 slices bacon, chopped",
+      "1/2 medium yellow onion, diced",
+      "2 cloves garlic, minced",
+      "1/2 teaspoon black pepper",
+      "2 green onions, sliced",
+      "1 tablespoon butter (optional)",
+      "Fresh lemon juice (optional)"
+    ],
+
+    instructions: [
+      "Rinse the rice and add it to the rice cooker with the recommended amount of water, annatto, garlic powder, onion powder, salt, and oil. Stir well and cook on the white-rice setting.",
+      "Dry-sauté the chanterelles in a large skillet over medium-high heat for 5–8 minutes, until their moisture evaporates and they develop golden edges. Transfer to a plate.",
+      "Cook the chopped bacon in the same skillet until crisp. Drain excess fat, leaving about 1 tablespoon.",
+      "Add the onion and cook for 3–5 minutes until softened. Add the garlic and black pepper and cook for another 30–60 seconds.",
+      "Return the chanterelles to the skillet and toss with the bacon and onion for 1–2 minutes. Stir in optional butter.",
+      "Let the cooked rice rest for 5–10 minutes, then fluff gently. Fold in the mushroom mixture.",
+      "Garnish with green onions and optional lemon juice. Taste for seasoning and serve warm."
+    ]
+  },
+
+  {
+    id: "chanterelle-risotto",
+    name: "Creamy Chanterelle Risotto",
+    mushroomId: "chanterelle",
+    description: "Creamy Arborio rice with golden chanterelles, Parmesan, shallots, and fresh thyme, finished with butter and a bright squeeze of lemon.",
+    prepTime: "10 minutes",
+    cookTime: "30 minutes",
+    difficulty: "Easy to moderate",
+    servings: 4,
+    image: "images/recipes/chanterelle-risotto.webp",
+
+    ingredients: [
+      "1 lb fresh chanterelles, cleaned and sliced",
+      "1 1/2 cups Arborio rice",
+      "5–6 cups chicken or vegetable broth, kept warm",
+      "1 medium shallot, finely diced",
+      "2 cloves garlic, minced",
+      "1/2 cup dry white wine (optional)",
+      "2 tablespoons olive oil",
+      "3 tablespoons unsalted butter, divided",
+      "3/4 cup freshly grated Parmesan cheese",
+      "1 teaspoon fresh thyme leaves",
+      "Salt and freshly ground black pepper, to taste",
+      "1 teaspoon lemon zest or a squeeze of lemon juice",
+      "Fresh parsley, for garnish"
+    ],
+
+    instructions: [
+      "Warm the broth in a saucepan over low heat and keep it hot while preparing the risotto.",
+      "Heat 1 tablespoon of olive oil in a large skillet over medium-high heat. Add the chanterelles and cook for 5–8 minutes until their moisture evaporates and their edges turn golden. Season lightly, then transfer to a plate.",
+      "In a heavy saucepan, heat the remaining olive oil and 1 tablespoon of butter. Cook the shallot for 2–3 minutes until softened, then add the garlic and cook for 30 seconds.",
+      "Add the Arborio rice and stir for 1–2 minutes until the grains are coated and slightly translucent around the edges.",
+      "Pour in the wine, if using, and stir until mostly absorbed.",
+      "Add warm broth one ladle at a time, stirring frequently. Wait until most of the liquid is absorbed before adding more. Continue for about 18–25 minutes, until the rice is creamy and tender but still has a slight bite.",
+      "Fold in the chanterelles, thyme, remaining 2 tablespoons of butter, and Parmesan. Add a little extra broth if needed to keep the risotto loose and creamy.",
+      "Season with salt and pepper, then finish with lemon zest or a small squeeze of lemon juice. Garnish with parsley and serve immediately."
+    ]
+  },
+
+  {
+    id: "crispy-cauliflower-mushrooms",
+    name: "Crispy Garlic-Butter Cauliflower Mushrooms",
+    mushroomId: "cauliflower-mushroom",
+    description: "Golden, crispy cauliflower mushroom pieces tossed with garlic butter, parsley, and lemon. A savory, satisfying way to enjoy this unusual forest mushroom.",
+    prepTime: "15 minutes",
+    cookTime: "15–20 minutes",
+    difficulty: "Easy",
+    servings: 4,
+    image: "images/recipes/crispy-cauliflower-mushrooms.webp",
+
+    ingredients: [
+      "1 lb fresh cauliflower mushroom, thoroughly cleaned",
+      "2 tablespoons olive oil",
+      "2 tablespoons unsalted butter",
+      "3 cloves garlic, minced",
+      "1/3 cup panko breadcrumbs (optional)",
+      "1/2 teaspoon smoked paprika (optional)",
+      "Salt and freshly ground black pepper, to taste",
+      "2 tablespoons chopped fresh parsley",
+      "1–2 teaspoons fresh lemon juice",
+      "Freshly grated Parmesan, optional"
+    ],
+
+    instructions: [
+      "Separate the cauliflower mushroom into small, bite-sized branches. Rinse carefully between the folds to remove debris, then drain and pat as dry as possible.",
+      "Bring a pot of lightly salted water to a boil. Simmer the mushroom pieces for 5–8 minutes, then drain thoroughly. This helps clean and soften the branching clusters. Pat dry again.",
+      "For extra crispiness, toss the dry pieces with the optional panko and smoked paprika.",
+      "Heat the olive oil in a wide skillet over medium-high heat. Add the mushroom in a single layer, working in batches if necessary.",
+      "Cook for about 5–8 minutes, turning occasionally, until the pieces are tender and golden at the edges. Ensure the mushroom is thoroughly cooked.",
+      "Lower the heat to medium. Add the butter and garlic, stirring for about 30–60 seconds until fragrant without letting the garlic burn.",
+      "Season with salt and pepper, then toss with parsley and lemon juice.",
+      "Finish with optional Parmesan and serve hot as a side dish, appetizer, or topping for toasted sourdough."
+    ]
+  },
+
+  {
+    id: "matsutake-rice",
+    name: "Japanese-Style Matsutake Rice",
+    mushroomId: "matsutake",
+    description: "Fragrant Japanese-inspired rice featuring matsutake, kombu dashi, soy sauce, and sake. A simple, comforting dish that highlights the mushroom's distinctive forest aroma.",
+    prepTime: "10 minutes",
+    cookTime: "30–40 minutes",
+    difficulty: "Easy",
+    servings: 4,
+    image: "images/recipes/matsutake-rice.webp",
+
+    ingredients: [
+      "2 cups Japanese short-grain rice",
+      "4–6 oz fresh matsutake mushrooms, cleaned and thinly sliced",
+      "Water and dashi to the rice cooker's recommended level",
+      "2 tablespoons sake",
+      "1 tablespoon Japanese soy sauce",
+      "1 tablespoon mirin",
+      "1 small piece kombu, about 2 inches (optional)",
+      "1 small sheet aburaage (fried tofu pouch), thinly sliced (optional)",
+      "1 green onion, thinly sliced, for garnish"
+    ],
+
+    instructions: [
+      "Rinse the rice gently until the water runs mostly clear. Drain well.",
+      "Clean the matsutake with a soft brush or damp cloth, trimming away any dirty base. Slice thinly so the aroma can infuse the rice.",
+      "Place the rice in the rice cooker. Add the sake, soy sauce, and mirin, then add dashi or water to the cooker’s usual level for 2 cups of rice. Do not exceed the cooker’s fill line.",
+      "Lay the sliced matsutake and optional aburaage over the rice. Add the optional kombu on top. Do not stir the mushrooms into the rice before cooking.",
+      "Cook using the normal white-rice setting. Let the rice rest for 10 minutes after the cycle finishes.",
+      "Remove the kombu. Gently fluff the rice from the bottom up, distributing the matsutake without crushing the slices.",
+      "Taste and adjust with a little soy sauce if needed. Garnish with green onion and serve warm alongside grilled fish, chicken, or other simple dishes."
+    ]
   }
+
 ];
 
 
