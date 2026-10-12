@@ -652,19 +652,34 @@ const PRIVATE_PASSWORD = "kekoa";
 
 const privateLocations = [
   {
-    title: "Gifford Pinchot — exact spot",
+    title: "Teeley Creek trailhead — exact spot",
     details: "Park at Teeley Creek trailhead. Hike up past the first two lakes, finding boletes around first lake, hedghog mushrooms near the second lake and bears head mushrooms around the third lake.",
     coords: "46.69815° N, 121.92926° W"
   },
+    {
+    title: "Mesatchee Creek — exact spot",
+    details: "Park at the camp spot here just before the creek. you should hear the creek fall from a tube under the road. Follow a trail from the campground down into the woods. venture to an fro the trail finding chanterelles and lobsters.",
+    coords: "46.71741° N, 121.89872° W"
+  },
   {
     title: "High bridge Creek — exact spot",
-    details: "Park at the high bridge trailhead. Hike along the trail, looking for mushrooms between the trail, road and creek",
+    details: "Park at the high bridge trailhead. Hike along the trail, looking for mushrooms between the trail, road and creek. There is an additional area about 150 yeards past this parking spot where a side road turns to the right. You can also explore this area as well.",
     coords: "46.41221° N, 121.80566° W"
+  },
+  {
+    title: "Fruitland Elementary - exact spot",
+    details: "Park at the Fruitland Elementary parking lot. go to the left behind the school, you should find where the trails start. Venture into this trail system looking for dead red alder logs or standing trees. Lots of Oyster mushrooms grow in this area, also stinging nettle if you fancy nettle harvesting. ",
+    coords: "46.69815° N, 121.92926° W"
   },
   {
     title: "Port Orchard — exact spot",
     details: "Park at Big Pond trailhead. Hike along the trail, looking for mushrooms near the pond and in the surrounding forest.",
     coords: "47.48032° N, 122.71049° W"
+  },
+  {
+    title: "Forest Service Road 20— exact spot",
+    details: "Find a small parking spot along the side of this road. Then explore woods uphill from the road. This is a prime spot to find Matsutake mushrooms.",
+    coords: "46.55950° N, 121.69818° W"
   }
 ];
 
