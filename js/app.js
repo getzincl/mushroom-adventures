@@ -1699,26 +1699,26 @@ async function setupPrivateGate() {
       card.className = "private-location";
 
       const title = document.createElement("strong");
-      title.textContent = p.title ?? p.name ?? p.location_name ?? "Mushroom location";
+      title.textContent = p.location_name || "Mushroom location";
 
       const details = document.createElement("p");
-      details.textContent = p.details ?? p.description ?? "";
+      details.textContent = p.notes || "";
 
       const coords = document.createElement("code");
-      if (p.coords != null) {
-        coords.textContent = String(p.coords);
-      } else if (p.coordinates != null) {
-        coords.textContent = String(p.coordinates);
-      } else if (p.latitude != null && p.longitude != null) {
-        coords.textContent = `${p.latitude}, ${p.longitude}`;
-      } else if (p.lat != null && p.lng != null) {
-        coords.textContent = `${p.lat}, ${p.lng}`;
+      if (p.latitude != null && p.longitude != null) {
+        coords.textContent =
+          `${Number(p.latitude).toFixed(5)}, ${Number(p.longitude).toFixed(5)}`;
+      } else {
+        coords.textContent = "Coordinates not entered";
       }
 
       card.append(title);
-      if (details.textContent) card.append(details);
-      if (coords.textContent) card.append(coords);
 
+      if (details.textContent) {
+        card.append(details);
+      }
+
+      card.append(coords);
       locationsContainer.append(card);
     });
 
