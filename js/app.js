@@ -648,40 +648,7 @@ const recipes = [
 // place to store highly sensitive secrets.
 // Change this password before publishing.
 // ------------------------------------------------------------
-const PRIVATE_PASSWORD = "kekoa";
 
-const privateLocations = [
-  {
-    title: "Teeley Creek trailhead — exact spot",
-    details: "Park at Teeley Creek trailhead. Hike up past the first two lakes, finding boletes around first lake, hedghog mushrooms near the second lake and bears head mushrooms around the third lake.",
-    coords: "46.69815° N, 121.92926° W"
-  },
-    {
-    title: "Mesatchee Creek — exact spot",
-    details: "Park at the camp spot here just before the creek. you should hear the creek fall from a tube under the road. Follow a trail from the campground down into the woods. venture to an fro the trail finding chanterelles and lobsters.",
-    coords: "46.71741° N, 121.89872° W"
-  },
-  {
-    title: "High bridge Creek — exact spot",
-    details: "Park at the high bridge trailhead. Hike along the trail, looking for mushrooms between the trail, road and creek. There is an additional area about 150 yeards past this parking spot where a side road turns to the right. You can also explore this area as well.",
-    coords: "46.41221° N, 121.80566° W"
-  },
-  {
-    title: "Fruitland Elementary - exact spot",
-    details: "Park at the Fruitland Elementary parking lot. go to the left behind the school, you should find where the trails start. Venture into this trail system looking for dead red alder logs or standing trees. Lots of Oyster mushrooms grow in this area, also stinging nettle if you fancy nettle harvesting. ",
-    coords: "46.69815° N, 121.92926° W"
-  },
-  {
-    title: "Port Orchard — exact spot",
-    details: "Park at Big Pond trailhead. Hike along the trail, looking for mushrooms near the pond and in the surrounding forest.",
-    coords: "47.48032° N, 122.71049° W"
-  },
-  {
-    title: "Forest Service Road 20— exact spot",
-    details: "Find a small parking spot along the side of this road. Then explore woods uphill from the road. This is a prime spot to find Matsutake mushrooms.",
-    coords: "46.55950° N, 121.69818° W"
-  }
-];
 
 function renderAdventures(filter = "") {
   const grid = document.getElementById("adventureGrid");
@@ -1706,47 +1673,128 @@ function initMap() {
   });
 }
 
-function setupPrivateGate() {
+async function setupPrivateGate() {
   const unlock = document.getElementById("unlockButton");
   const input = document.getElementById("locationPassword");
   const message = document.getElementById("passwordMessage");
   const lockArea = document.getElementById("lockArea");
   const content = document.getElementById("privateContent");
+  const locationsContainer = document.getElementById("privateLocations");
+  const lockButton = document.getElementById("lockButton");
 
-  function showPrivate() {
-    lockArea.classList.add("hidden");
-    content.classList.remove("hidden");
-    document.getElementById("privateLocations").innerHTML =
-      privateLocations.map(p => `
-        <div class="private-location">
-          <strong>${escapeHtml(p.title)}</strong>
-          <p>${escapeHtml(p.details)}</p>
-          <code>${escapeHtml(p.coords)}</code>
-        </div>
-      `).join("");
+  function showMessage(text) {
+    message.textContent = text;
   }
 
-  unlock.addEventListener("click", () => {
-    if (input.value === PRIVATE_PASSWORD) {
-      sessionStorage.setItem("mushroom_private_unlocked", "yes");
-      showPrivate();
-    } else {
-      message.textContent = "That password was not accepted.";
+  function renderLocations(locations) {
+    locationsContainer.replaceChildren();
+
+    if (!locations.length) {
+      locationsContainer.textContent = "No private locations found.";
+      return;
+    }
+
+    locations.forEach((p) => {
+      const card = document.createElement("div");
+      card.className = "private-location";
+
+      const title = document.createElement("strong");
+      title.textContent = p.title ?? p.name ?? p.location_name ?? "Mushroom location";
+
+      const details = document.createElement("p");
+      details.textContent = p.details ?? p.description ?? "";
+
+      const coords = document.createElement("code");
+      if (p.coords != null) {
+        coords.textContent = String(p.coords);
+      } else if (p.coordinates != null) {
+        coords.textContent = String(p.coordinates);
+      } else if (p.latitude != null && p.longitude != null) {
+        coords.textContent = `${p.latitude}, ${p.longitude}`;
+      } else if (p.lat != null && p.lng != null) {
+        coords.textContent = `${p.lat}, ${p.lng}`;
+      }
+
+      card.append(title);
+      if (details.textContent) card.append(details);
+      if (coords.textContent) card.append(coords);
+
+      locationsContainer.append(card);
+    });
+
+    lockArea.classList.add("hidden");
+    content.classList.remove("hidden");
+  }
+
+  async function loadPrivateLocations() {
+    const { data, error } = await supabaseClient
+      .from("mushroom_locations")
+      .select("*");
+
+    if (error) {
+      console.error("Could not load private locations:", error.message);
+      throw new Error("You signed in, but the locations could not be loaded.");
+    }
+
+    renderLocations(data ?? []);
+  }
+
+  unlock.addEventListener("click", async () => {
+    const password = input.value;
+
+    if (!password) {
+      showMessage("Please enter the password.");
+      return;
+    }
+
+    unlock.disabled = true;
+    showMessage("Checking password…");
+
+    try {
+      const { data, error } = await supabaseClient.functions.invoke(
+        "unlock-locations",
+        { body: { password } }
+      );
+
+      if (error || !data?.access_token || !data?.refresh_token) {
+        throw new Error(data?.error ?? "That password was not accepted.");
+      }
+
+      const { error: sessionError } = await supabaseClient.auth.setSession({
+        access_token: data.access_token,
+        refresh_token: data.refresh_token,
+      });
+
+      if (sessionError) {
+        throw new Error("Authentication failed. Please try again.");
+      }
+
+      await loadPrivateLocations();
+      input.value = "";
+      showMessage("");
+    } catch (error) {
+      console.error("Private-location unlock failed:", error);
+      await supabaseClient.auth.signOut();
+      content.classList.add("hidden");
+      lockArea.classList.remove("hidden");
+      showMessage(error.message || "Unable to unlock locations. Please try again.");
+    } finally {
+      unlock.disabled = false;
     }
   });
 
-  input.addEventListener("keydown", e => {
-    if (e.key === "Enter") unlock.click();
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") unlock.click();
   });
 
-  document.getElementById("lockButton").addEventListener("click", () => {
-    sessionStorage.removeItem("mushroom_private_unlocked");
+  lockButton.addEventListener("click", async () => {
+    await supabaseClient.auth.signOut();
+    locationsContainer.replaceChildren();
     content.classList.add("hidden");
     lockArea.classList.remove("hidden");
     input.value = "";
+    showMessage("");
   });
-
-  if (sessionStorage.getItem("mushroom_private_unlocked") === "yes") showPrivate();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
