@@ -4,6 +4,7 @@ const allowedOrigins = new Set([
   "https://getzin-foraging.us",
   "https://www.getzin-foraging.us",
   "https://getzincl.github.io",
+  "http://localhost:8000",
 ]);
 
 Deno.serve(async (req: Request) => {
