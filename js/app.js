@@ -1684,6 +1684,8 @@ async function setupPrivateGate() {
 
   function showMessage(text) {
     message.textContent = text;
+    message.classList.remove("hidden");
+    message.style.display = "block";
   }
 
   function renderLocations(locations) {
