@@ -1681,7 +1681,6 @@ async function setupPrivateGate() {
   const content = document.getElementById("privateContent");
   const locationsContainer = document.getElementById("privateLocations");
   const lockButton = document.getElementById("lockButton");
-  const errorMessage = document.getElementById("private-error");
 
   function showMessage(text) {
     message.textContent = text;
@@ -1761,18 +1760,17 @@ async function setupPrivateGate() {
         const status = error.context?.status;
 
         if (status === 429) {
-          errorMessage.textContent =
-            "Too many failed attempts. Please wait 15 minutes before trying again.";
+          showMessage(
+            "Too many failed attempts. Please wait 15 minutes before trying again."
+          );
         } else {
-          errorMessage.textContent =
-            "Unable to unlock private locations. Please try again.";
+          showMessage("Unable to unlock private locations. Please try again.");
         }
 
-        errorMessage.classList.remove("hidden");
         return;
       }
 
-      if (error || !data?.access_token || !data?.refresh_token) {
+      if (!data?.access_token || !data?.refresh_token) {
         throw new Error(data?.error ?? "That password was not accepted.");
       }
 
