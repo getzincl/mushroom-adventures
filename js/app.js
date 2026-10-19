@@ -1673,6 +1673,120 @@ function initMap() {
   });
 }
 
+
+
+let privateMapInstance = null;
+let privateMarkersLayer = null;
+
+function renderPrivateMap(locations) {
+  const mapElement = document.getElementById("privateMap");
+
+  if (!mapElement || !window.L) {
+    console.error("Private map container or Leaflet is missing.");
+    return;
+  }
+
+  // Create the map only once.
+  if (!privateMapInstance) {
+    privateMapInstance = L.map(mapElement);
+
+    L.tileLayer(
+      "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
+      {
+        maxZoom: 17,
+        attribution:
+          'Map data: <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="https://opentopomap.org">OpenTopoMap</a>',
+      }
+    ).addTo(privateMapInstance);
+
+    privateMarkersLayer = L.layerGroup().addTo(privateMapInstance);
+  }
+
+  // Remove old pins before drawing the latest locations.
+  privateMarkersLayer.clearLayers();
+
+  const validLocations = locations.filter((p) => {
+    const lat = Number(p.latitude);
+    const lng = Number(p.longitude);
+
+    return (
+      p.latitude != null &&
+      p.longitude != null &&
+      Number.isFinite(lat) &&
+      Number.isFinite(lng) &&
+      lat >= -90 &&
+      lat <= 90 &&
+      lng >= -180 &&
+      lng <= 180
+    );
+  });
+
+  const bounds = [];
+
+  validLocations.forEach((p) => {
+    const lat = Number(p.latitude);
+    const lng = Number(p.longitude);
+
+    const marker = L.marker([lat, lng]);
+
+    // Build popup content safely using textContent.
+    const popup = document.createElement("div");
+    const title = document.createElement("strong");
+    title.textContent = p.location_name || "Mushroom location";
+    popup.append(title);
+
+    if (p.found_date) {
+      const date = document.createElement("p");
+      date.textContent = `Found: ${p.found_date}`;
+      popup.append(date);
+    }
+
+    if (p.notes) {
+      const notes = document.createElement("p");
+      notes.textContent = p.notes;
+      popup.append(notes);
+    }
+
+    const link = document.createElement("a");
+    link.href =
+      `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = "Navigate with Google Maps";
+    popup.append(link);
+
+    marker.bindPopup(popup);
+    marker.addTo(privateMarkersLayer);
+    bounds.push([lat, lng]);
+  });
+
+  // Show all pins, or a general regional view if there are none.
+  if (bounds.length === 1) {
+    privateMapInstance.setView(bounds[0], 14);
+  } else if (bounds.length > 1) {
+    privateMapInstance.fitBounds(bounds, { padding: [30, 30], maxZoom: 14 });
+  } else {
+    privateMapInstance.setView([46.8, -122.0], 8);
+  }
+
+  // The private section was previously hidden.
+  requestAnimationFrame(() => {
+    privateMapInstance.invalidateSize();
+  });
+}
+
+function clearPrivateMap() {
+  if (privateMarkersLayer) {
+    privateMarkersLayer.clearLayers();
+  }
+
+  if (privateMapInstance) {
+    // Return to a general view rather than retaining the last exact location.
+    privateMapInstance.setView([46.8, -122.0], 8);
+    privateMapInstance.invalidateSize();
+  }
+}
+
 async function setupPrivateGate() {
   const unlock = document.getElementById("unlockButton");
   const input = document.getElementById("locationPassword");
@@ -1728,18 +1842,23 @@ async function setupPrivateGate() {
     content.classList.remove("hidden");
   }
 
-  async function loadPrivateLocations() {
-    const { data, error } = await supabaseClient
-      .from("mushroom_locations")
-      .select("*");
+  
+async function loadPrivateLocations() {
+  const { data, error } = await supabaseClient
+    .from("mushroom_locations")
+    .select("*");
 
-    if (error) {
-      console.error("Could not load private locations:", error.message);
-      throw new Error("You signed in, but the locations could not be loaded.");
-    }
-
-    renderLocations(data ?? []);
+  if (error) {
+    console.error("Could not load private locations:", error.message);
+    throw new Error("You signed in, but the locations could not be loaded.");
   }
+
+  const locations = data ?? [];
+
+  renderLocations(locations);
+  renderPrivateMap(locations);
+}
+
 
   unlock.addEventListener("click", async () => {
     const password = input.value;
@@ -1806,6 +1925,7 @@ async function setupPrivateGate() {
   lockButton.addEventListener("click", async () => {
     await supabaseClient.auth.signOut();
     locationsContainer.replaceChildren();
+    clearPrivateMap();
     content.classList.add("hidden");
     lockArea.classList.remove("hidden");
     input.value = "";
