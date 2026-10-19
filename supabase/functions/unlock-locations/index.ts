@@ -86,7 +86,7 @@ Deno.serve(async (req: Request) => {
       ?.split(",")
       .map((value) => value.trim())
       .filter(Boolean)
-      .at(-1);
+      .at(0);
 
     if (!ip) {
       console.error("Client IP was unavailable.");
