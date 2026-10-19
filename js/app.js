@@ -364,6 +364,27 @@ const mushrooms = [
     observations: "Add your own observations here as you encounter this mushroom."
   },
 
+
+  {
+    id: "oyster-mushroom",
+    name: "Oyster Mushroom",
+    scientific: "Pleurotus ostreatus",
+    emoji: "🍄",
+    images: [
+      "images/puyallup-oyster-1.webp",
+      "images/puyallup-oyster-2.webp",
+      "images/puyallup-oyster-3.webp",
+      "images/puyallup-oyster-4.webp",
+      "images/puyallup-oyster-5.webp"
+    ],
+    categories: ["Edible", "Gilled", "Saprotrophic"],
+    seasons: ["Fall", "Winter", "Spring"],
+    habitat: "grows in overlapping clusters on dead or dying hardwood trees and fallen logs, especially red alder in the Pacific Northwest. It commonly grows on deciduous wood in moist, shaded forests and can fruit during cool, wet weather.",
+    identification: "identified by its smooth, fan- or oyster-shaped caps, typically white, cream, gray, or gray-brown, with crowded white to cream-colored gills that run down a short, off-center or lateral stem. The flesh is white and the mushrooms often grow in shelf-like clusters on wood.",
+    note: "a choice edible mushroom with a mild flavor and tender texture when young. Look for fresh, firm specimens and avoid mushrooms that are slimy, decaying, or heavily insect-damaged. Similar-looking wood-growing mushrooms exist, so confirm identification using multiple characteristics, including gill attachment, growth habit, and substrate, before eating.",
+    observations: "Record the host tree, whether the mushrooms were growing on a standing dead tree or fallen log, the size and color of the caps, recent rainfall, and the condition of the cluster."
+  },
+
   {
 
     id: "porcini",
